@@ -1,0 +1,17 @@
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.infrastructure.deps.json
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.infrastructure.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.infrastructure.pdb
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.Domain.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.Domain.pdb
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.csproj.AssemblyReference.cache
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.AssemblyInfoInputs.cache
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.AssemblyInfo.cs
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicE.2E31EC35.Up2Date
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\refint\DynamicExamSystem.infrastructure.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.pdb
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\ref\DynamicExamSystem.infrastructure.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.infrastructure.runtimeconfig.json
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.genruntimeconfig.cache

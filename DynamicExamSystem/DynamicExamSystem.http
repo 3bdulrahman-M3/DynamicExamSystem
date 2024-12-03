@@ -1,0 +1,6 @@
+@DynamicExamSystem_HostAddress = http://localhost:5063
+
+GET {{DynamicExamSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
