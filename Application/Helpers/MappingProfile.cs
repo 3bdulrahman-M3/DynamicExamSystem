@@ -1,6 +1,7 @@
 ﻿using Application.Dtos;
 using AutoMapper;
 using DynamicExamSystem.Domain.Models;
+using DynamicExamSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,13 @@ using System.Threading.Tasks;
 
 namespace Application.Helpers
 {
-    internal class MappingProfile : Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            CreateMap<Subject, SubjectDto>();
+            CreateMap<Exam, ExamDto>()
+                .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.Subject.Name));
+            CreateMap<CreateExamDto, Exam>();
         }
     }
 }

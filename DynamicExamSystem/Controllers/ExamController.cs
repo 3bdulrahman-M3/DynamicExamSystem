@@ -8,6 +8,7 @@ using System.Collections.Immutable;
 using DynamicExamSystem.Models;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using AutoMapper;
 
 namespace DynamicExamSystem.Controllers
 {
@@ -16,39 +17,31 @@ namespace DynamicExamSystem.Controllers
     public class ExamController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public ExamController(AppDbContext context)
+        private readonly IMapper _mapper;
+        public ExamController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpGet("AllExams")]
         public async Task<ActionResult> GetAllExams()
         {
             var exams = await _context.Exams
-                .Include(e => e.Subject) 
-                .Select(e => new ExamDto
-                {
-                    Id = e.Id,
-                    Title = e.Title,
-                    SubjectId = e.SubjectId,
-                })
+                .Include(e => e.Subject)
                 .ToListAsync();
 
-            return Ok(exams);
+            var examDtos = _mapper.Map<List<ExamDto>>(exams);
+
+            return Ok(examDtos);
         }
+
 
         [HttpGet("ExamsBySubject/{subjectId}")]
         public async Task<ActionResult> GetExamsBySubject(int subjectId)
         {
             var exams = await _context.Exams
                 .Where(e => e.SubjectId == subjectId)
-                .Select(e => new ExamDto
-                {
-                    Id = e.Id,
-                    Title = e.Title,
-                    SubjectId = e.SubjectId,
-                })
                 .ToListAsync();
 
             if (exams == null || exams.Count == 0)
@@ -56,8 +49,11 @@ namespace DynamicExamSystem.Controllers
                 return NotFound($"No exams found for SubjectId {subjectId}.");
             }
 
-            return Ok(exams);
+            var examDtos = _mapper.Map<List<ExamDto>>(exams);
+
+            return Ok(examDtos);
         }
+
 
         [HttpPost("AddExam")]
         public async Task<ActionResult> AddExam([FromForm] CreateExamDto dto)
@@ -89,8 +85,7 @@ namespace DynamicExamSystem.Controllers
                 return NotFound($"Exam with ID {Id} not found.");
             }
 
-            exam.SubjectId = dto.SubjectId;
-            exam.Title = dto.Title;
+            _mapper.Map(dto, exam);
 
             _context.Exams.Update(exam);
             await _context.SaveChangesAsync();
@@ -108,13 +103,7 @@ namespace DynamicExamSystem.Controllers
             }
             _context.Exams.Remove(exam);
             await _context.SaveChangesAsync();
-            return Ok($"The {exam.Title} Deleted");
+            return Ok(exam);
         }
-
-
-
-
-
-
     }
 }

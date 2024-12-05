@@ -6,6 +6,7 @@ using DynamicExamSystem.infrastructure.Data;
 using Application.Dtos;
 using System.Collections.Immutable;
 using DynamicExamSystem.Models;
+using AutoMapper;
 
 namespace DynamicExamSystem.Controllers
 {
@@ -14,6 +15,7 @@ namespace DynamicExamSystem.Controllers
     public class SubjectController : ControllerBase
     {
         private readonly AppDbContext _context;
+        
 
         public SubjectController(AppDbContext context)
         {
