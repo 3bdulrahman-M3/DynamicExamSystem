@@ -26,6 +26,7 @@ namespace DynamicExamSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var user = new ApplicationUser {
                     
                     UserName = model.UserName,
@@ -50,11 +51,6 @@ namespace DynamicExamSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
-
-
-
                 var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
@@ -65,11 +61,11 @@ namespace DynamicExamSystem.Controllers
             return BadRequest(ModelState);
         }
 
-        //[HttpPost("logout")]
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await _signInManager.SignOutAsync();
-        //    return Ok(new { message = "Logout successful." });
-        //}
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return Ok(new { message = "Logout successful." });
+        }
     }
 }

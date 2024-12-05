@@ -15,3 +15,4 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.in
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\ref\DynamicExamSystem.infrastructure.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\bin\Debug\net8.0\DynamicExamSystem.infrastructure.runtimeconfig.json
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.genruntimeconfig.cache
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.infrastructure\obj\Debug\net8.0\DynamicExamSystem.infrastructure.sourcelink.json

@@ -3,7 +3,6 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\ob
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.AssemblyInfoInputs.cache
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.AssemblyInfo.cs
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.csproj.CoreCompileInputs.cache
-C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\appsettings.json
@@ -283,3 +282,7 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bi
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.sourcelink.json
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\obj\Debug\net8.0\DynamicExamSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\Application.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\Application.pdb

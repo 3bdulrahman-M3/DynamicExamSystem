@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DynamicExamSystem.infrastructure.Migrations
 {
-    [DbContext(typeof(ExamDbContext))]
+    [DbContext(typeof(AppDbContext))]
     partial class ExamDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -22,6 +22,48 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DynamicExamSystem.Domain.Models.Answer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Option")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.ToTable("Answers", (string)null);
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.Domain.Models.Subject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subjects", (string)null);
+                });
+
             modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
                 {
                     b.Property<int>("Id")
@@ -30,13 +72,8 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Answers")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CorrectAnswers")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SubjectId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -44,23 +81,9 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Exams");
-                });
+                    b.HasIndex("SubjectId");
 
-            modelBuilder.Entity("DynamicExamSystem.Models.ExamResult", b =>
-                {
-                    b.Property<int>("ExamId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<byte>("Score")
-                        .HasColumnType("tinyint");
-
-                    b.HasKey("ExamId", "UserId");
-
-                    b.ToTable("ExamResults");
+                    b.ToTable("Exams", (string)null);
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
@@ -75,12 +98,8 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ExamId")
+                    b.Property<int>("ExamId")
                         .HasColumnType("int");
-
-                    b.PrimitiveCollection<string>("Options")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -88,9 +107,31 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ExamId");
+                    b.ToTable("Questions", (string)null);
+                });
 
-                    b.ToTable("Questions");
+            modelBuilder.Entity("DynamicExamSystem.Models.StudentExam", b =>
+                {
+                    b.Property<int>("ExamId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Score")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("TakenAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ExamId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("StudentExams", (string)null);
                 });
 
             modelBuilder.Entity("DynamicExamSystem.infrastructure.Data.ApplicationUser", b =>
@@ -156,6 +197,21 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("ExamQuestion", b =>
+                {
+                    b.Property<int>("ExamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExamId", "QuestionsId");
+
+                    b.HasIndex("QuestionsId");
+
+                    b.ToTable("ExamQuestion", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -291,7 +347,29 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("DynamicExamSystem.Models.ExamResult", b =>
+            modelBuilder.Entity("DynamicExamSystem.Domain.Models.Answer", b =>
+                {
+                    b.HasOne("DynamicExamSystem.Models.Question", "Question")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
+                {
+                    b.HasOne("DynamicExamSystem.Domain.Models.Subject", "Subject")
+                        .WithMany("Exams")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.Models.StudentExam", b =>
                 {
                     b.HasOne("DynamicExamSystem.Models.Exam", "Exam")
                         .WithMany()
@@ -299,14 +377,30 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("DynamicExamSystem.infrastructure.Data.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Exam");
+
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
+            modelBuilder.Entity("ExamQuestion", b =>
                 {
                     b.HasOne("DynamicExamSystem.Models.Exam", null)
-                        .WithMany("Questions")
-                        .HasForeignKey("ExamId");
+                        .WithMany()
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DynamicExamSystem.Models.Question", null)
+                        .WithMany()
+                        .HasForeignKey("QuestionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -360,9 +454,14 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
+            modelBuilder.Entity("DynamicExamSystem.Domain.Models.Subject", b =>
                 {
-                    b.Navigation("Questions");
+                    b.Navigation("Exams");
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
+                {
+                    b.Navigation("Answers");
                 });
 #pragma warning restore 612, 618
         }

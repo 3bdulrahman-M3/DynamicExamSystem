@@ -10,3 +10,4 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Do
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.pdb
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\ref\DynamicExamSystem.Domain.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.csproj.AssemblyReference.cache
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.sourcelink.json
