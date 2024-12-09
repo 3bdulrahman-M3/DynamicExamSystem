@@ -1,36 +1,31 @@
-﻿using DynamicExamSystem.Domain.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using DynamicExamSystem.infrastructure.Data;
-using Application.Dtos;
-using System.Collections.Immutable;
+﻿using Application.Dtos;
+using DynamicExamSystem.Domain.Models;
 using DynamicExamSystem.Models;
-using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DynamicExamSystem.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SubjectController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        
+        private readonly ISubjectRepository _subjectRepository;
 
-        public SubjectController(AppDbContext context)
+        public SubjectController(ISubjectRepository subjectRepository)
         {
-            _context = context;
+            _subjectRepository = subjectRepository;
         }
-        [HttpGet("AllSubject")]
-        public async Task<ActionResult> GetSubject()
+        [Authorize(Roles = "Student, Admin")]
+        [HttpGet("AllSubjects")]
+        public async Task<ActionResult> GetSubjects()
         {
-            var supjects= await _context.Subjects.ToListAsync();
-            return Ok(supjects);
+            var subjects = await _subjectRepository.GetAllAsync();
+            return Ok(subjects);
         }
-        //Include(s => s.Exams)
 
-
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult> CreateSubject([FromForm] SubjectDto dto)
         {
@@ -44,46 +39,43 @@ namespace DynamicExamSystem.Controllers
                 Name = dto.Name
             };
 
-            await _context.Subjects.AddAsync(subject); 
-            await _context.SaveChangesAsync();          
+            await _subjectRepository.AddAsync(subject);
+            await _subjectRepository.SaveChangesAsync();
 
-            return Ok(subject); 
+            return Ok(subject);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateSupject(int id, [FromForm] SubjectDto dto)
+        public async Task<ActionResult> UpdateSubject(int id, [FromForm] SubjectDto dto)
         {
-            var subject = await _context.Subjects.FindAsync(id);  
+            var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
             {
                 return NotFound("Subject not found.");
             }
 
-            
             subject.Name = dto.Name;
-            
-
-            _context.Subjects.Update(subject);  
-            await _context.SaveChangesAsync(); 
+            _subjectRepository.Update(subject);
+            await _subjectRepository.SaveChangesAsync();
 
             return Ok(subject);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteSubject(int id)
         {
-            var subject = await _context.Subjects.FindAsync(id); 
+            var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
             {
                 return NotFound("Subject not found.");
             }
 
-            _context.Subjects.Remove(subject);  
-            await _context.SaveChangesAsync(); 
+            _subjectRepository.Remove(subject);
+            await _subjectRepository.SaveChangesAsync();
 
             return Ok(subject);
         }
-
     }
 }

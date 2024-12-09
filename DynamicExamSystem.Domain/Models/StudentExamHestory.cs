@@ -3,7 +3,7 @@ using DynamicExamSystem.infrastructure.Data;
 
 namespace DynamicExamSystem.Models
 {
-    public class StudentExam
+    public class StudentExamHestory
     {
         public int Id { get; set; }
         public string UserId { get; set; }

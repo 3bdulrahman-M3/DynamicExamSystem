@@ -287,3 +287,4 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\ob
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\Application.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\Application.pdb
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

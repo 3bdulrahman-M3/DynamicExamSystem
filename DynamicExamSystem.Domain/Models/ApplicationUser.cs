@@ -9,5 +9,6 @@ namespace DynamicExamSystem.infrastructure.Data
 {
     public class ApplicationUser : IdentityUser
     {
+        public string Role { get; set; }
     }
 }

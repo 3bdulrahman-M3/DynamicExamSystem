@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using DynamicExamSystem.infrastructure.Data;
 using DynamicExamSystem.Domain.Dtos;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DynamicExamSystem.Controllers
 {
@@ -13,59 +15,30 @@ namespace DynamicExamSystem.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IMapper _mapper;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _mapper = mapper;
         }
-
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromForm] RegisterViewDto model)
-        {
-            if (ModelState.IsValid)
-            {
-
-                var user = new ApplicationUser {
-                    
-                    UserName = model.UserName,
-                    Email = model.Email 
-                };
-                var result = await _userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return Ok(new { message = "Registration successful." });
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
-            return BadRequest(ModelState);
-        }
-
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginViewDto model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
-                if (result.Succeeded)
-                {
-                    return Ok(new { message = "Login successful." });
-                }
-                return Unauthorized(new { message = "Invalid login attempt." });
-            }
-            return BadRequest(ModelState);
-        }
-
+        [Authorize(Roles = "Student, Admin")]
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return Ok(new { message = "Logout successful." });
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = _userManager.Users.ToList();
+            var userDtos = _mapper.Map<List<ApplicationUserDto>>(users);
+
+            return Ok(userDtos);
         }
     }
 }
