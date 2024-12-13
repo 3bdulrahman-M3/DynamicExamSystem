@@ -10,7 +10,7 @@ using System.Text;
 
 namespace DynamicExamSystem.Controllers
 {
-
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthentcationController : ControllerBase

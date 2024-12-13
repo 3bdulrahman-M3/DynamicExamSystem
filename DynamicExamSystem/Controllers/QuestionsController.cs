@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DynamicExamSystem.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionsController : ControllerBase
@@ -28,17 +28,16 @@ namespace DynamicExamSystem.Controllers
             _answerRepository = answerRepository;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("Answer")]
         public async Task<ActionResult> AddAnswer(int questionId, [FromBody] OptionDto answerDto)
         {
-            // Step 1: Get the question by its ID
+            
             var question = await _questionRepository.GetByIdAsync(questionId);
             if (question == null)
             {
                 return NotFound("Question not found.");
             }
-
-            // Step 2: Map the DTO to the Answer entity
             var answer = new Answer
             {
                 Text = answerDto.Text,
@@ -52,6 +51,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("Answer added successfully.");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{answerId}")]
         public async Task<ActionResult> DeleteAnswer(int questionId, int answerId)
         {
@@ -67,6 +67,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("Answer deleted successfully.");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{answerId}")]
         public async Task<ActionResult> UpdateAnswer(int answerId, [FromBody] OptionDto answerDto)
         {

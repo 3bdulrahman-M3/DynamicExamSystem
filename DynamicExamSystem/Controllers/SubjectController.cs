@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DynamicExamSystem.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SubjectController : ControllerBase
@@ -18,7 +18,7 @@ namespace DynamicExamSystem.Controllers
             _subjectRepository = subjectRepository;
         }
 
-        // GET: api/Subject
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SubjectDto>>> GetAllSubjects()
         {
@@ -26,7 +26,7 @@ namespace DynamicExamSystem.Controllers
             return Ok(subjects);
         }
 
-        // GET: api/Subject/{id}
+
         [HttpGet("{id}")]
         public async Task<ActionResult<SubjectDto>> GetSubjectById(int id)
         {
@@ -38,7 +38,7 @@ namespace DynamicExamSystem.Controllers
             return Ok(subject);
         }
 
-        // POST: api/Subject
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<SubjectDto>> CreateSubject([FromBody] SubjectCreateDto subjectCreateDto)
         {
@@ -47,7 +47,7 @@ namespace DynamicExamSystem.Controllers
                 return BadRequest(ModelState);
             }
 
-            // Create a new Subject object with the provided name.
+            
             var subject = new Subject
             {
                 Name = subjectCreateDto.Name
@@ -58,6 +58,7 @@ namespace DynamicExamSystem.Controllers
             return CreatedAtAction(nameof(GetSubjectById), new { id = createdSubject.Id }, createdSubject);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateSubject(int id, [FromBody] SubjectCreateDto subjectDto)
         {
@@ -73,9 +74,7 @@ namespace DynamicExamSystem.Controllers
         }
 
 
-
-
-        // DELETE: api/Subject/{id}
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSubject(int id)
         {

@@ -11,7 +11,7 @@ using System.Data;
 
 namespace DynamicExamSystem.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ExamController : ControllerBase
@@ -28,6 +28,7 @@ namespace DynamicExamSystem.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = "Admin")]
         // Create an Exam
         [HttpPost]
         public async Task<ActionResult<ExamDto>> CreateExam([FromBody] ExamDto examDto)
@@ -52,6 +53,7 @@ namespace DynamicExamSystem.Controllers
             return Ok(createdExamDto);
         }
 
+        [Authorize]
         [HttpGet("subject/{subjectId}")]
         public async Task<ActionResult<IEnumerable<ExamDto>>> GetExamsBySubjectId(int subjectId)
         {
@@ -70,6 +72,7 @@ namespace DynamicExamSystem.Controllers
             return Ok(examDtos);
         }
 
+        [Authorize]
         [HttpGet("{examId}/questions")]
         public async Task<ActionResult<IEnumerable<QuestionDto>>> GetQuestionsInExam(int examId)
         {
@@ -94,6 +97,7 @@ namespace DynamicExamSystem.Controllers
             return Ok(questionDtos);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("{examId}/questions")]
         public async Task<ActionResult<QuestionDto>> AddQuestionToExam(int examId, [FromBody] QuestionDto questionDto)
         {
@@ -120,6 +124,8 @@ namespace DynamicExamSystem.Controllers
             return CreatedAtAction(nameof(GetQuestionsInExam), new { examId = examId }, createdQuestionDto);
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{examId}/questions/{questionId}")]
         public async Task<IActionResult> DeleteQuestionFromExam(int examId, int questionId)
         {
@@ -138,6 +144,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("the question was deleted"); 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{examId}/questions/{questionId}")]
         public async Task<ActionResult<QuestionDto>> UpdateQuestionInExam(int examId, int questionId, [FromBody] QuestionEditDto questionDto)
         {
@@ -159,6 +166,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("the question edit succesfully");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{examId}/edit-name")]
         public async Task<ActionResult> UpdateExamName(int examId, [FromBody] string newName)
         {
