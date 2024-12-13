@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 //using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,21 @@ builder.Services.AddLogging(options =>
     options.SetMinimumLevel(LogLevel.Debug);
 });
 
+builder.Services.AddCors((options) => {
+    options.AddPolicy("DevCors", (corsBuilder) => {
+        corsBuilder.WithOrigins("http://localhost:4200", "http://localhost:3000", "http://localhost:8000")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+    });
+
+    options.AddPolicy("ProdCors", (corsBuilder) => {
+        corsBuilder.WithOrigins("https://myProductionSite.com")
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
+    });
+});
 //builder.Services.AddControllers()
 //    .AddJsonOptions(options =>
 //    {
@@ -31,7 +47,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(
 options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
@@ -90,8 +108,14 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("DevCors");
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseCors("ProdCors");
+    app.UseHttpsRedirection();
 }
 
 using (var scope = app.Services.CreateScope())

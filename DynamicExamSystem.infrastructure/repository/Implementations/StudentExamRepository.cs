@@ -11,12 +11,12 @@ public class StudentExamRepository : IStudentExamRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<StudentExamHestory>> GetStudentHistoryAsync(string userId)
-    {
-        return await _context.StudentExams
-            .Include(se => se.Exam)
-            .Where(se => se.UserId == userId)
-            .OrderByDescending(se => se.TakenAt)
-            .ToListAsync();
-    }
+    //public async Task<IEnumerable<StudentExamHestory>> GetStudentHistoryAsync(string userId)
+    //{
+    //    return await _context.StudentExams
+    //        .Include(se => se.Exam)
+    //        .Where(se => se.UserId == userId)
+    //        .OrderByDescending(se => se.TakenAt)
+    //        .ToListAsync();
+    //}
 }

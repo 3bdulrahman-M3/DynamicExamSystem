@@ -3,12 +3,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DynamicExamSystem.Models
 {
+    
     public class Exam
     {
-        [Key] public int Id { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; } = string.Empty;
         public int SubjectId { get; set; }
-        public Subject Subject{ get; set; }
-        public List<Question> Questions { get; set; }
+        public Subject Subject { get; set; } = null!;
+        public ICollection<Question> Questions { get; set; } = new List<Question>();
     }
+
+    
 }

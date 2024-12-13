@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DynamicExamSystem.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class SubjectController : ControllerBase
@@ -17,65 +17,76 @@ namespace DynamicExamSystem.Controllers
         {
             _subjectRepository = subjectRepository;
         }
-        [Authorize(Roles = "Student, Admin")]
-        [HttpGet("AllSubjects")]
-        public async Task<ActionResult> GetSubjects()
+
+        // GET: api/Subject
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<SubjectDto>>> GetAllSubjects()
         {
-            var subjects = await _subjectRepository.GetAllAsync();
+            var subjects = await _subjectRepository.GetAllSubjectsAsync();
             return Ok(subjects);
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<ActionResult> CreateSubject([FromForm] SubjectDto dto)
+        // GET: api/Subject/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SubjectDto>> GetSubjectById(int id)
         {
-            if (dto == null)
+            var subject = await _subjectRepository.GetByIdAsync(id);
+            if (subject == null)
             {
-                return BadRequest("Invalid data.");
+                return NotFound($"Subject with ID {id} not found.");
+            }
+            return Ok(subject);
+        }
+
+        // POST: api/Subject
+        [HttpPost]
+        public async Task<ActionResult<SubjectDto>> CreateSubject([FromBody] SubjectCreateDto subjectCreateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
             }
 
+            // Create a new Subject object with the provided name.
             var subject = new Subject
             {
-                Name = dto.Name
+                Name = subjectCreateDto.Name
             };
 
-            await _subjectRepository.AddAsync(subject);
-            await _subjectRepository.SaveChangesAsync();
+            var createdSubject = await _subjectRepository.CreateSubjectAsync(subject);
 
-            return Ok(subject);
+            return CreatedAtAction(nameof(GetSubjectById), new { id = createdSubject.Id }, createdSubject);
         }
 
-        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateSubject(int id, [FromForm] SubjectDto dto)
+        public async Task<ActionResult> UpdateSubject(int id, [FromBody] SubjectCreateDto subjectDto)
         {
             var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
             {
                 return NotFound("Subject not found.");
             }
-
-            subject.Name = dto.Name;
+            subject.Name = subjectDto.Name;
             _subjectRepository.Update(subject);
             await _subjectRepository.SaveChangesAsync();
-
             return Ok(subject);
         }
 
-        [Authorize(Roles = "Admin")]
+
+
+
+        // DELETE: api/Subject/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteSubject(int id)
+        public async Task<IActionResult> DeleteSubject(int id)
         {
-            var subject = await _subjectRepository.GetByIdAsync(id);
-            if (subject == null)
+            var result = await _subjectRepository.DeleteSubjectAsync(id);
+            if (!result)
             {
-                return NotFound("Subject not found.");
+                return NotFound($"Subject with ID {id} not found.");
             }
 
-            _subjectRepository.Remove(subject);
-            await _subjectRepository.SaveChangesAsync();
-
-            return Ok(subject);
+            return NoContent();
         }
     }
+
 }

@@ -12,7 +12,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {}
     public DbSet <Exam> Exams{ get; set; }
-    public DbSet<StudentExamHestory> StudentExams { get; set; }
+    public DbSet<StudentHistory> StudentExams { get; set; }
     public DbSet<Question> Questions { get; set; }
     public DbSet<Subject> Subjects { get; set; }
     public DbSet<Answer> Answers { get; set; }
@@ -21,8 +21,8 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<StudentExamHestory>()
-            .HasKey(e => new { e.ExamId, e.UserId }); 
+        modelBuilder.Entity<StudentHistory>()
+            .HasKey(e => new { e.ExamId, e.UserId });
 
     }
 

@@ -1,4 +1,6 @@
-﻿using DynamicExamSystem.Models;
+﻿using Application.Dtos;
+using DynamicExamSystem.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +12,13 @@ namespace DynamicExamSystem.infrastructure.repository.Interfaces
 {
     public interface IExamRepository
     {
-        Task<Exam> GetByIdAsync(int id);
-        Task<IEnumerable<Exam>> GetAllAsync();
-        Task<IEnumerable<Exam>> FindAsync(Expression<Func<Exam, bool>> predicate);
-        Task AddAsync(Exam exam);
-        void Update(Exam exam);
-        void Remove(Exam exam);
+        Task<Exam> AddAsync(Exam exam);
+        Task<Exam> GetExamByIdAsync(int examId);
+        Task<IEnumerable<Exam>> GetExamsBySubjectIdAsync(int subjectId);
+        Task<Question> GetQuestionByIdAsync(int questionId);
+        Task Remove(Question question);
         Task SaveChangesAsync();
+        void Update(Exam exam);
+        void Delete(Exam exam);
     }
 }

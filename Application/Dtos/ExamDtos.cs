@@ -7,17 +7,11 @@ using System.Threading.Tasks;
 
 namespace Application.Dtos
 {
+    
     public class ExamDto
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public string Title { get; set; } = string.Empty;
         public int SubjectId { get; set; }
-        public string SubjectName { get; set; }
+    }
 
-    }
-    public class CreateExamDto
-    {
-        public string Title { get; set; }
-        public int SubjectId { get; set; }
-    }
 }

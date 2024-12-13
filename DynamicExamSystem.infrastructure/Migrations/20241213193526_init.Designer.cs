@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DynamicExamSystem.infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241207181602_DeleteCorrectAnswer")]
-    partial class DeleteCorrectAnswer
+    [Migration("20241213193526_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,12 +36,12 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Option")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -106,10 +106,12 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ExamId");
+
                     b.ToTable("Questions");
                 });
 
-            modelBuilder.Entity("DynamicExamSystem.Models.StudentExam", b =>
+            modelBuilder.Entity("DynamicExamSystem.Models.StudentHistory", b =>
                 {
                     b.Property<int>("ExamId")
                         .HasColumnType("int");
@@ -117,13 +119,19 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("FinalScore")
+                        .HasColumnType("int");
+
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<double>("Score")
-                        .HasColumnType("float");
+                    b.Property<int>("Score")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("TakenAt")
+                    b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ExamId", "UserId");
@@ -175,6 +183,10 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -196,21 +208,6 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("ExamQuestion", b =>
-                {
-                    b.Property<int>("ExamId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("QuestionsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExamId", "QuestionsId");
-
-                    b.HasIndex("QuestionsId");
-
-                    b.ToTable("ExamQuestion");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -368,7 +365,18 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Navigation("Subject");
                 });
 
-            modelBuilder.Entity("DynamicExamSystem.Models.StudentExam", b =>
+            modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
+                {
+                    b.HasOne("DynamicExamSystem.Models.Exam", "Exam")
+                        .WithMany("Questions")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.Models.StudentHistory", b =>
                 {
                     b.HasOne("DynamicExamSystem.Models.Exam", "Exam")
                         .WithMany()
@@ -377,7 +385,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("DynamicExamSystem.infrastructure.Data.ApplicationUser", "User")
-                        .WithMany()
+                        .WithMany("ExamHistories")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -385,21 +393,6 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Navigation("Exam");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ExamQuestion", b =>
-                {
-                    b.HasOne("DynamicExamSystem.Models.Exam", null)
-                        .WithMany()
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DynamicExamSystem.Models.Question", null)
-                        .WithMany()
-                        .HasForeignKey("QuestionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -458,9 +451,19 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Navigation("Exams");
                 });
 
+            modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
+                {
+                    b.Navigation("Questions");
+                });
+
             modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
                 {
                     b.Navigation("Answers");
+                });
+
+            modelBuilder.Entity("DynamicExamSystem.infrastructure.Data.ApplicationUser", b =>
+                {
+                    b.Navigation("ExamHistories");
                 });
 #pragma warning restore 612, 618
         }

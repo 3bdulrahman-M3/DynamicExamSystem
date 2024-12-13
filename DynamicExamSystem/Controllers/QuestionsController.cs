@@ -1,6 +1,8 @@
 ﻿using Application.Dtos;
 using AutoMapper;
+using DynamicExamSystem.Domain.Models;
 using DynamicExamSystem.infrastructure.Data;
+using DynamicExamSystem.infrastructure.repository.Implementations;
 using DynamicExamSystem.infrastructure.repository.Interfaces;
 using DynamicExamSystem.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -9,91 +11,79 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DynamicExamSystem.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionsController : ControllerBase
     {
         private readonly IQuestionRepository _questionRepository;
+        private readonly IAnswerRepository _answerRepository;
         private readonly IMapper _mapper;
         private readonly AppDbContext _context;
-        public QuestionsController(IQuestionRepository questionRepository, IMapper mapper,AppDbContext context)
+        public QuestionsController(IQuestionRepository questionRepository, IMapper mapper, AppDbContext context, IAnswerRepository answerRepository)
         {
             _context = context;
             _questionRepository = questionRepository;
             _mapper = mapper;
+            _answerRepository = answerRepository;
         }
 
-        [Authorize(Roles = "Student, Admin")]
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<QuestionDto>>> GetQuestions()
+        [HttpPost("Answer")]
+        public async Task<ActionResult> AddAnswer(int questionId, [FromBody] OptionDto answerDto)
         {
-            var questions = await _questionRepository.GetAllQuestionsWithAnswersAsync();
-            var questionDtos = _mapper.Map<List<QuestionDto>>(questions);
-
-            return Ok(questionDtos);
-        }
-
-        [Authorize(Roles = "Student, Admin")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<QuestionDto>> GetQuestion(int id)
-        {
-            var question = await _questionRepository.GetByIdWithAnswersAsync(id);
+            // Step 1: Get the question by its ID
+            var question = await _questionRepository.GetByIdAsync(questionId);
             if (question == null)
             {
-                return NotFound($"Question with ID {id} not found.");
+                return NotFound("Question not found.");
             }
-            var questionDto = _mapper.Map<QuestionDto>(question);
-            return Ok(questionDto);
+
+            // Step 2: Map the DTO to the Answer entity
+            var answer = new Answer
+            {
+                Text = answerDto.Text,
+                IsCorrect = answerDto.IsCorrect,
+                QuestionId = questionId
+            };
+
+            await _answerRepository.AddAsync(answer);
+            await _answerRepository.SaveChangesAsync();
+
+            return Ok("Answer added successfully.");
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<IActionResult> CreateQuestion([FromBody] CreateQuestionDto dto)
+        [HttpDelete("{answerId}")]
+        public async Task<ActionResult> DeleteAnswer(int questionId, int answerId)
         {
-            if (dto == null)
+            var answer = await _answerRepository.GetByIdAsync(answerId);
+            if (answer == null || answer.QuestionId != questionId)
             {
-                return BadRequest("Invalid data.");
+                return NotFound("Answer not found or does not belong to the specified question.");
             }
-            var question = _mapper.Map<Question>(dto);
-            var createdQuestion = await _questionRepository.AddAsync(question);
 
-            var questionDto = _mapper.Map<QuestionDto>(createdQuestion);
+            _answerRepository.Delete(answer);
+            await _answerRepository.SaveChangesAsync();
 
-            return Ok(dto.Text);
+            return Ok("Answer deleted successfully.");
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateQuestion(int id, [FromForm] CreateQuestionDto dto)
+        [HttpPut("{answerId}")]
+        public async Task<ActionResult> UpdateAnswer(int answerId, [FromBody] OptionDto answerDto)
         {
-            var question = await _questionRepository.GetByIdAsync(id);
-            if (question == null)
+            
+            var answer = await _answerRepository.GetByIdAsync(answerId);
+            if (answer == null)
             {
-                return NotFound($"Question with ID {id} not found.");
+                return NotFound("Answer not found.");
             }
 
-            _mapper.Map(dto, question);
-            _questionRepository.Update(question);
-            await _questionRepository.SaveChangesAsync();
+            answer.Text = answerDto.Text;
+            answer.IsCorrect = answerDto.IsCorrect;
 
-            return Ok(question);
-        }
+            _answerRepository.Update(answer);
+            await _answerRepository.SaveChangesAsync();
 
-        [Authorize(Roles = "Admin")]
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteQuestion(int id)
-        {
-            var question = await _questionRepository.GetByIdAsync(id);
-            if (question == null)
-            {
-                return NotFound($"Question with ID {id} not found.");
-            }
-
-            _questionRepository.Remove(question);
-            await _questionRepository.SaveChangesAsync();
-
-            return Ok(question);
+            return Ok("Answer updated successfully.");
         }
 
 

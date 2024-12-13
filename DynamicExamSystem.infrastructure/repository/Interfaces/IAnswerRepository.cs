@@ -10,13 +10,10 @@ namespace DynamicExamSystem.infrastructure.repository.Interfaces
 {
     public interface IAnswerRepository
     {
-        Task<Answer> GetByIdAsync(int id);
-        Task<IEnumerable<Answer>> GetAllAsync();
-        Task<IEnumerable<Answer>> FindAsync(Expression<Func<Answer, bool>> predicate);
         Task AddAsync(Answer answer);
-        Task AddRangeAsync(IEnumerable<Answer> answers);
+        Task<Answer> GetByIdAsync(int id);
         void Update(Answer answer);
-        void Remove(Answer answer);
+        void Delete(Answer answer);
         Task SaveChangesAsync();
     }
 }

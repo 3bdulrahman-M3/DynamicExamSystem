@@ -20,44 +20,30 @@ namespace DynamicExamSystem.infrastructure.repository.Implementations
             _context = context;
         }
 
+        public async Task AddAsync(Answer answer)
+        {
+            await _context.Answers.AddAsync(answer);
+        }
         public async Task<Answer> GetByIdAsync(int id)
         {
             return await _context.Answers.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Answer>> GetAllAsync()
+        public void Delete(Answer answer)
         {
-            return await _context.Answers.Include(a => a.Question).ToListAsync();
+            _context.Answers.Remove(answer);
         }
-
-        public async Task<IEnumerable<Answer>> FindAsync(Expression<Func<Answer, bool>> predicate)
-        {
-            return await _context.Answers.Where(predicate).ToListAsync();
-        }
-
-        public async Task AddAsync(Answer answer)
-        {
-            await _context.Answers.AddAsync(answer);
-        }
-
-        public async Task AddRangeAsync(IEnumerable<Answer> answers)
-        {
-            await _context.Answers.AddRangeAsync(answers);
-        }
-
         public void Update(Answer answer)
         {
             _context.Answers.Update(answer);
-        }
-
-        public void Remove(Answer answer)
-        {
-            _context.Answers.Remove(answer);
         }
 
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
         }
+
+
     }
+
 }

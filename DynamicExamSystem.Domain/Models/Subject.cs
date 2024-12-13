@@ -13,7 +13,9 @@ namespace DynamicExamSystem.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
-        [JsonIgnore]
-        public List<Exam> Exams { get; set; }
+        // Navigation properties
+        public ICollection<Exam> Exams { get; set; } = new List<Exam>();
     }
+
 }
+

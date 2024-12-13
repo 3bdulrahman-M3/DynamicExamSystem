@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Application.Dtos.CreateAnswerDto;
+//using static Application.Dtos.CreateAnswerDto;
 
 namespace Application.Helpers
 {
@@ -17,24 +17,10 @@ namespace Application.Helpers
     {
         public MappingProfile()
         {
-            CreateMap<Exam, ExamDto>()
-                .ForMember(dest => dest.SubjectName, opt => opt.MapFrom(src => src.Subject.Name));
-            CreateMap<CreateExamDto, Exam>();
+            //subject mapper
+            CreateMap<Subject, SubjectDto>();
+            CreateMap<SubjectDto, Subject>();
 
-            CreateMap<Question, QuestionDto>()
-            .ForMember(dest => dest.Options, opt => opt.MapFrom(src => src.Answers));
-            CreateMap<CreateQuestionDto, Question>();
-
-            CreateMap<Answer, OptionsDto>().ReverseMap();
-            CreateMap<CreateAnswerDto.OptionDto, Answer>().ReverseMap();
-
-            CreateMap<StudentExamHestory, StudentExamHistoryDto>()
-             .ForMember(dest => dest.ExamName, opt => opt.MapFrom(src => src.Exam.Title));
-
-
-            CreateMap<Answer, OptionDto>();
-
-            CreateMap<ApplicationUser, ApplicationUserDto>();
         }
     }
 }

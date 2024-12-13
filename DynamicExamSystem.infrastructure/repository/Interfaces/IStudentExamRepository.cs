@@ -2,5 +2,5 @@
 
 public interface IStudentExamRepository
 {
-    Task<IEnumerable<StudentExamHestory>> GetStudentHistoryAsync(string userId);
+    //Task<IEnumerable<StudentExamHestory>> GetStudentHistoryAsync(string userId);
 }

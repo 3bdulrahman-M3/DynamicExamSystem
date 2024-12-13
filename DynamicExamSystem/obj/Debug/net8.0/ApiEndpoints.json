@@ -20,85 +20,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DynamicExamSystem.Controllers.AnswerController",
-    "Method": "AddAnswers",
-    "RelativePath": "api/Answer/AddAnswers",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "Application.Dtos.CreateAnswerDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.AnswerController",
-    "Method": "GetAllAnswers",
-    "RelativePath": "api/Answer/AllAnswers",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.AnswerController",
-    "Method": "GetAnswersByQuestion",
-    "RelativePath": "api/Answer/AnswersByQuestion/{questionId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "questionId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.AnswerController",
-    "Method": "DeleteAnswer",
-    "RelativePath": "api/Answer/DeleteAnswer/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.AnswerController",
-    "Method": "UpdateAnswer",
-    "RelativePath": "api/Answer/UpdateAnswer/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "Application.Dtos.OptionsDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "DynamicExamSystem.Controllers.AuthentcationController",
     "Method": "Login",
     "RelativePath": "api/Authentcation/Login",
@@ -132,101 +53,65 @@
   },
   {
     "ContainingType": "DynamicExamSystem.Controllers.ExamController",
-    "Method": "AddExam",
-    "RelativePath": "api/Exam/AddExam",
+    "Method": "CreateExam",
+    "RelativePath": "api/Exam",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Title",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "SubjectId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
-    "Method": "GetAllExams",
-    "RelativePath": "api/Exam/AllExams",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
-    "Method": "DeleteExam",
-    "RelativePath": "api/Exam/DeleteExam/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "examDto",
+        "Type": "Application.Dtos.ExamDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
-    "Method": "GetExamsBySubject",
-    "RelativePath": "api/Exam/ExamsBySubject/{subjectId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+    "ReturnTypes": [
       {
-        "Name": "subjectId",
-        "Type": "System.Int32",
-        "IsRequired": true
+        "Type": "Application.Dtos.ExamDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
+    ]
   },
   {
     "ContainingType": "DynamicExamSystem.Controllers.ExamController",
-    "Method": "UpdateExam",
-    "RelativePath": "api/Exam/UpdateExam/{id}",
+    "Method": "UpdateExamName",
+    "RelativePath": "api/Exam/{examId}/edit-name",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "examId",
         "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "Title",
+        "Name": "newName",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "SubjectId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
-    "Method": "GetQuestions",
-    "RelativePath": "api/Questions",
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "GetQuestionsInExam",
+    "RelativePath": "api/Exam/{examId}/questions",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "examId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Application.Dtos.QuestionDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -240,32 +125,21 @@
     ]
   },
   {
-    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
-    "Method": "CreateQuestion",
-    "RelativePath": "api/Questions",
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "AddQuestionToExam",
+    "RelativePath": "api/Exam/{examId}/questions",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Application.Dtos.CreateQuestionDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
-    "Method": "GetQuestion",
-    "RelativePath": "api/Questions/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
+        "Name": "examId",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionDto",
+        "Type": "Application.Dtos.QuestionDto",
         "IsRequired": true
       }
     ],
@@ -282,41 +156,20 @@
     ]
   },
   {
-    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
-    "Method": "UpdateQuestion",
-    "RelativePath": "api/Questions/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "Text",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "ExamId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
-    "Method": "DeleteQuestion",
-    "RelativePath": "api/Questions/{id}",
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "DeleteQuestionFromExam",
+    "RelativePath": "api/Exam/{examId}/questions/{questionId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "examId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -324,14 +177,149 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "StudentExamController",
-    "Method": "GetStudentExamHistory",
-    "RelativePath": "api/StudentExam/history",
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "UpdateQuestionInExam",
+    "RelativePath": "api/Exam/{examId}/questions/{questionId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "examId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "questionDto",
+        "Type": "Application.Dtos.QuestionEditDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Dtos.QuestionDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "GetExamsBySubjectId",
+    "RelativePath": "api/Exam/subject/{subjectId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "subjectId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Application.Dtos.ExamDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
+    "Method": "DeleteAnswer",
+    "RelativePath": "api/Questions/{answerId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "answerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
+    "Method": "UpdateAnswer",
+    "RelativePath": "api/Questions/{answerId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "answerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "answerDto",
+        "Type": "Application.Dtos.OptionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.QuestionsController",
+    "Method": "AddAnswer",
+    "RelativePath": "api/Questions/Answer",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "answerDto",
+        "Type": "Application.Dtos.OptionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.SubjectController",
+    "Method": "GetAllSubjects",
+    "RelativePath": "api/Subject",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Application.Dtos.SubjectDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "DynamicExamSystem.Controllers.SubjectController",
@@ -342,12 +330,48 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "subjectCreateDto",
+        "Type": "Application.Dtos.SubjectCreateDto",
+        "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Application.Dtos.SubjectDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.SubjectController",
+    "Method": "GetSubjectById",
+    "RelativePath": "api/Subject/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Dtos.SubjectDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "DynamicExamSystem.Controllers.SubjectController",
@@ -363,9 +387,9 @@
         "IsRequired": true
       },
       {
-        "Name": "Name",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "subjectDto",
+        "Type": "Application.Dtos.SubjectCreateDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -384,16 +408,6 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "DynamicExamSystem.Controllers.SubjectController",
-    "Method": "GetSubjects",
-    "RelativePath": "api/Subject/AllSubjects",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   }
 ]
