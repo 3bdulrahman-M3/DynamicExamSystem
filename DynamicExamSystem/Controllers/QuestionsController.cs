@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DynamicExamSystem.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionsController : ControllerBase
@@ -29,21 +29,18 @@ namespace DynamicExamSystem.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost("Answer")]
+        [HttpPost("{questionId}/Answer")]
         public async Task<ActionResult> AddAnswer(int questionId, [FromBody] OptionDto answerDto)
         {
-            
+            // Check if the question exists
             var question = await _questionRepository.GetByIdAsync(questionId);
             if (question == null)
             {
                 return NotFound("Question not found.");
             }
-            var answer = new Answer
-            {
-                Text = answerDto.Text,
-                IsCorrect = answerDto.IsCorrect,
-                QuestionId = questionId
-            };
+
+            var answer = _mapper.Map<Answer>(answerDto);
+            answer.QuestionId = questionId; 
 
             await _answerRepository.AddAsync(answer);
             await _answerRepository.SaveChangesAsync();
@@ -51,12 +48,12 @@ namespace DynamicExamSystem.Controllers
             return Ok("Answer added successfully.");
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("{answerId}")]
-        public async Task<ActionResult> DeleteAnswer(int questionId, int answerId)
+        public async Task<ActionResult> DeleteAnswer( int answerId)
         {
             var answer = await _answerRepository.GetByIdAsync(answerId);
-            if (answer == null || answer.QuestionId != questionId)
+            if (answer == null)
             {
                 return NotFound("Answer not found or does not belong to the specified question.");
             }

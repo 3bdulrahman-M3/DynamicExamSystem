@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Application.Dtos
 {
-    public class StudentExamHistoryDto
+    public class AnswerSubmissionDto
+    {
+        public int AnswerId { get; set; }
+        public int QuestionId { get; set; }
+    }
+    public class ExamResultDto
     {
         public int ExamId { get; set; }
-        public string ExamName { get; set; }
-        public DateTime TakenAt { get; set; }
-        public double Score { get; set; }
+        public int TotalQuestions { get; set; }
+        public int CorrectAnswers { get; set; }
+        public int Score { get; set; }
     }
+
 
 
 }

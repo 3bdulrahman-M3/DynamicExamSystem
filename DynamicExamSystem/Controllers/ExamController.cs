@@ -1,59 +1,52 @@
 ﻿using Application.Dtos;
 using AutoMapper;
+using Azure.Core;
 using DynamicExamSystem.Domain.Models;
 using DynamicExamSystem.infrastructure.repository.Interfaces;
 using DynamicExamSystem.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace DynamicExamSystem.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ExamController : ControllerBase
     {
         private readonly IExamRepository _examRepository;
+        private readonly IExamResultRepository _examResultRepository;
         private readonly IMapper _mapper;
 
-        public ExamController(
-            IExamRepository examRepository,
-            IAnswerRepository answerRepository,
-            IMapper mapper)
+        public ExamController(IExamRepository examRepository, IMapper mapper, IExamResultRepository examResultRepository)
         {
             _examRepository = examRepository;
             _mapper = mapper;
+            _examResultRepository = examResultRepository;
         }
 
         [Authorize(Roles = "Admin")]
         // Create an Exam
         [HttpPost]
-        public async Task<ActionResult<ExamDto>> CreateExam([FromBody] ExamDto examDto)
+        public async Task<ActionResult<CreateExamDto>> CreateExam([FromBody] CreateExamDto examDto)
         {
-            // Check if the model state is valid
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var exam = new Exam
-            {
-                Title = examDto.Title,
-                SubjectId = examDto.SubjectId
-            };
+
+            var exam = _mapper.Map<Exam>(examDto);
             await _examRepository.AddAsync(exam);
             await _examRepository.SaveChangesAsync();
-            var createdExamDto = new ExamDto
-            {
-                Title = exam.Title,
-                SubjectId = exam.SubjectId
-            };
+
+            var createdExamDto = _mapper.Map<CreateExamDto>(exam);
             return Ok(createdExamDto);
         }
 
-        [Authorize]
+        // Get Exams by SubjectId
         [HttpGet("subject/{subjectId}")]
         public async Task<ActionResult<IEnumerable<ExamDto>>> GetExamsBySubjectId(int subjectId)
         {
@@ -63,18 +56,14 @@ namespace DynamicExamSystem.Controllers
             {
                 return NotFound($"No exams found for SubjectId {subjectId}.");
             }
-            var examDtos = exams.Select(exam => new ExamDto
-            {
-                Title = exam.Title,
-                SubjectId = exam.SubjectId
-            }).ToList();
 
+            var examDtos = _mapper.Map<IEnumerable<ExamDto>>(exams);
             return Ok(examDtos);
         }
 
-        [Authorize]
+        // Get Questions in Exam
         [HttpGet("{examId}/questions")]
-        public async Task<ActionResult<IEnumerable<QuestionDto>>> GetQuestionsInExam(int examId)
+        public async Task<ActionResult<IEnumerable<QuestionsDto>>> GetQuestionsInExam(int examId)
         {
             var exam = await _examRepository.GetExamByIdAsync(examId);
 
@@ -83,21 +72,16 @@ namespace DynamicExamSystem.Controllers
                 return NotFound($"Exam with ID {examId} not found.");
             }
 
-            var questionDtos = exam.Questions.Select(question => new 
-            {
-                Text = question.Text,
-                ExamId = question.ExamId,
-                Answer = question.Answers.Select(a=>new
-                {
-                    a.Text,
-                    a.IsCorrect
-                })
-            }).ToList();
+            // Use AutoMapper to map questions and answers
+            var questionDtos = _mapper.Map<IEnumerable<QuestionsDto>>(exam.Questions);
 
             return Ok(questionDtos);
         }
 
+
+
         [Authorize(Roles = "Admin")]
+        // Add Question to Exam
         [HttpPost("{examId}/questions")]
         public async Task<ActionResult<QuestionDto>> AddQuestionToExam(int examId, [FromBody] QuestionDto questionDto)
         {
@@ -107,44 +91,18 @@ namespace DynamicExamSystem.Controllers
             {
                 return NotFound($"Exam with ID {examId} not found.");
             }
-            var question = new Question
-            {
-                Text = questionDto.Text,  
-                ExamId = examId          
-            };
+
+            var question = _mapper.Map<Question>(questionDto);
             exam.Questions.Add(question);
 
             await _examRepository.SaveChangesAsync();
 
-            var createdQuestionDto = new QuestionDto
-            {
-                Text = question.Text,
-                ExamId = question.ExamId
-            };
+            var createdQuestionDto = _mapper.Map<QuestionDto>(question);
             return CreatedAtAction(nameof(GetQuestionsInExam), new { examId = examId }, createdQuestionDto);
         }
 
-
         [Authorize(Roles = "Admin")]
-        [HttpDelete("{examId}/questions/{questionId}")]
-        public async Task<IActionResult> DeleteQuestionFromExam(int examId, int questionId)
-        {
-            var exam = await _examRepository.GetExamByIdAsync(examId);
-            if (exam == null)
-            {
-                return NotFound($"Exam with ID {examId} not found.");
-            }
-            var question = exam.Questions.FirstOrDefault(q => q.Id == questionId);
-            if (question == null)
-            {
-                return NotFound($"Question with ID {questionId} not found in the specified exam.");
-            }
-            _examRepository.Remove(question);
-            await _examRepository.SaveChangesAsync();
-            return Ok("the question was deleted"); 
-        }
-
-        [Authorize(Roles = "Admin")]
+        // Update Question in Exam
         [HttpPut("{examId}/questions/{questionId}")]
         public async Task<ActionResult<QuestionDto>> UpdateQuestionInExam(int examId, int questionId, [FromBody] QuestionEditDto questionDto)
         {
@@ -155,27 +113,34 @@ namespace DynamicExamSystem.Controllers
             }
 
             var question = await _examRepository.GetQuestionByIdAsync(questionId);
-            if (question == null || question.ExamId != examId)  
+            if (question == null || question.ExamId != examId)
             {
                 return NotFound("Question not found in this exam.");
             }
 
-            question.Text = questionDto.Text;   
+            _mapper.Map(questionDto, question);  // Use AutoMapper to update question properties
 
             await _examRepository.SaveChangesAsync();
-            return Ok("the question edit succesfully");
+            return Ok("The question was updated successfully.");
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPut("{examId}/edit-name")]
-        public async Task<ActionResult> UpdateExamName(int examId, [FromBody] string newName)
+        // Update Exam Name
+        [HttpPut("{examId}")]
+        public async Task<ActionResult> UpdateExamName(int examId, [FromBody] UpdateExamNameRequestDto request)
         {
+            if (string.IsNullOrEmpty(request.NewName))
+            {
+                return BadRequest("Exam name cannot be empty.");
+            }
+
             var exam = await _examRepository.GetExamByIdAsync(examId);
             if (exam == null)
             {
                 return NotFound("Exam not found.");
             }
-            exam.Title = newName;
+
+            exam.Title = request.NewName;
 
             await _examRepository.SaveChangesAsync();
             return Ok("Exam name updated successfully.");
@@ -183,9 +148,44 @@ namespace DynamicExamSystem.Controllers
 
 
 
+        // Submit Exam Answers
+        [Authorize(Roles = "Student")]
+        [HttpPost("exam/{examId}/submit")]
+        public async Task<ActionResult<ExamResultDto>> SubmitExamAnswers(int examId, [FromBody] List<AnswerSubmissionDto> answers)
+        {
+            foreach (var claim in User.Claims)
+            {
+                Console.WriteLine(claim);
+            }
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("User not logged in.");
+
+            var result = await _examRepository.EvaluateExamAsync(examId, userId, answers);
+            return Ok(result);
+        }
+
+
+        [Authorize(Roles = "Student")]
+        [HttpGet("exam/results")]
+        public async Task<ActionResult<List<ExamResultDto>>> GetExamResults()
+        {
+            // Retrieve user ID from claims
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("User not logged in.");
+
+            // Fetch the exam results using the repository
+            var results = await _examResultRepository.GetStudentExamResultsAsync(userId);
+
+            if (results == null || !results.Any())
+                return NotFound("No exam results found for the user.");
+
+            return Ok(results);
+        }
+
+
     }
-
-
 }
-
-

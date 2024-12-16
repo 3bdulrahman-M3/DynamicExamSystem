@@ -12,6 +12,13 @@ namespace Application.Dtos
         public string Text { get; set; } = string.Empty;
         public int ExamId { get; set; }
     }
+    public class QuestionsDto
+    {
+        public int Id { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public int ExamId { get; set; }
+        public IEnumerable<OptionsDto> Answers { get; set; }
+    }
 
     public class QuestionEditDto
     {

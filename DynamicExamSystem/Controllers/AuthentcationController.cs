@@ -132,8 +132,8 @@ namespace DynamicExamSystem.Controllers
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim("Id",user.Id),
-                    new Claim(JwtRegisteredClaimNames.Sub,user.Email),
+                    new Claim(JwtRegisteredClaimNames.NameId,user.Id),
+                    new Claim(JwtRegisteredClaimNames.Sub,user.Id),
                     new Claim(JwtRegisteredClaimNames.Email,user.Email),
                     new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
                     new Claim(ClaimTypes.Role,user.Role),

@@ -4,6 +4,7 @@ using DynamicExamSystem.infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DynamicExamSystem.infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241215142542_StudentHistory")]
+    partial class StudentHistory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +47,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers", (string)null);
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Domain.Models.Subject", b =>
@@ -61,7 +64,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
@@ -83,7 +86,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("Exams", (string)null);
+                    b.ToTable("Exams");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
@@ -105,7 +108,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("ExamId");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.StudentHistory", b =>
@@ -135,7 +138,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("StudentHistories", (string)null);
+                    b.ToTable("StudentHistories");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.infrastructure.Data.ApplicationUser", b =>

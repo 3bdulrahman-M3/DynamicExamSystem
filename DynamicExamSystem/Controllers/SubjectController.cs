@@ -39,8 +39,8 @@ namespace DynamicExamSystem.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<ActionResult<SubjectDto>> CreateSubject([FromBody] SubjectCreateDto subjectCreateDto)
+        [HttpPost("Addsubject")]
+        public async Task<ActionResult<SubjectDto>> CreateSubject([FromForm] SubjectCreateDto subjectCreateDto)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace DynamicExamSystem.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateSubject(int id, [FromBody] SubjectCreateDto subjectDto)
+        public async Task<ActionResult> UpdateSubject(int id, [FromForm] SubjectCreateDto subjectDto)
         {
             var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
