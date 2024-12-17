@@ -1,0 +1,72 @@
+<!-- Pagination Controls -->
+<div class="flex justify-between items-center mt-4">
+    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" (click)="previousPage()"
+        [disabled]="pageNumber === 1">
+        Previous
+    </button>
+    <span class="text-gray-700">
+        Page {{ pageNumber }} of {{ totalPages }}
+    </span>
+    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" (click)="nextPage()"
+        [disabled]="pageNumber * pageSize >= totalCount">
+        Next
+    </button>
+</div>
+
+<!-- Exam Results Section -->
+<div *ngIf="examResults.length > 0">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+        <i class="fas fa-book-reader mr-2"></i>Your Exam History
+    </h2>
+
+    <table class="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+        <thead class="bg-gray-200 text-gray-700">
+            <tr>
+                <th class="p-4 text-left text-sm font-medium border-b">Exam Title</th>
+                <th class="p-4 text-left text-sm font-medium border-b">Start Time</th>
+                <th class="p-4 text-left text-sm font-medium border-b">End Time</th>
+                <th class="p-4 text-left text-sm font-medium border-b">Time Taken</th>
+                <th class="p-4 text-left text-sm font-medium border-b">Score</th>
+                <th class="p-4 text-left text-sm font-medium border-b">Final Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of examResults" class="hover:bg-gray-50">
+                <td class="p-4 text-sm text-gray-700 border-b">
+                    <i class="fas fa-file-alt mr-2"></i>{{ result.examTitle }}
+                </td>
+                <td class="p-4 text-sm text-gray-700 border-b">
+                    <i class="fas fa-calendar-alt mr-2"></i>{{ result.startTime | date: 'medium' }}
+                </td>
+                <td class="p-4 text-sm text-gray-700 border-b">
+                    <i class="fas fa-calendar-check mr-2"></i>{{ result.endTime | date: 'medium' }}
+                </td>
+                <td class="p-4 text-sm text-gray-700 border-b">
+                    <i class="fas fa-clock mr-2"></i>{{ result.timeTaken }}
+                </td>
+                <td class="p-4 text-sm text-gray-700 border-b">
+                    <i class="fas fa-check-circle mr-2"></i>{{ result.score }}
+                </td>
+                <td class="p-4 text-sm text-gray-700 border-b" [ngClass]="{
+                    'text-red-500': result.finalScore < 50, 
+                    'text-green-500': result.finalScore >= 50
+                }">
+                    <i class="fas fa-trophy mr-2"></i>{{ result.finalScore }}%
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- No Results Section -->
+<div *ngIf="examResults.length === 0"
+    class="bg-gray-200 text-gray-700 p-4 rounded-md shadow-md flex items-center justify-between">
+    <i class="fas fa-frown mr-3"></i>
+    <p>No exam results found.</p>
+</div>
+
+<!-- Error Message Section -->
+<div *ngIf="errorMessage" class="error-message bg-red-500 text-white p-4 rounded-md shadow-md flex items-center">
+    <i class="fas fa-exclamation-triangle mr-3"></i>
+    <p>{{ errorMessage }}</p>
+</div>

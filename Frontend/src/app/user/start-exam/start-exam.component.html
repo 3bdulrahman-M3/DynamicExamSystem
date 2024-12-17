@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="text-2xl font-semibold mb-4">{{examTitle}}</h2>
+
+    <!-- Loading Indicator -->
+    <div *ngIf="isLoading" class="text-blue-500 text-center mb-4">
+        Loading questions...
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="text-red-500 text-center mb-4">
+        {{ errorMessage }}
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="text-green-500 text-center mb-4">
+        {{ successMessage }}
+    </div>
+
+    <!-- Exam Questions -->
+    <form *ngIf="questions.length > 0"  class="space-y-6">
+        <div *ngFor="let question of questions" class="bg-gray-50 p-4 rounded-lg shadow-sm">
+            <p class="text-lg font-medium mb-3">{{ question.text }}</p>
+
+            <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
+                <input type="radio" [id]="'answer-' + question.id + '-' + answer.id" [name]="'question-' + question.id"
+                    [value]="answer.id" [checked]="selectedAnswers[question.id] === answer.id"
+                    (change)="selectAnswer(question.id, answer.id)"
+                    class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500" />
+                <label [for]="'answer-' + question.id + '-' + answer.id" class="text-gray-700">
+                    {{ answer.text }}
+                </label>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button (click)="submitExam()"
+            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Submit Exam
+        </button>
+    </form>
+</div>

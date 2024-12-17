@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R36a0cGGAdc=",
+  "dgSpecHash": "VeBRDAqd8OI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\عبد الرحمن\\source\\repos\\DynamicExamSystem\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\عبد الرحمن\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\عبد الرحمن\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\عبد الرحمن\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

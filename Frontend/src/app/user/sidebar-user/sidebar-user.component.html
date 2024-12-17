@@ -1,0 +1,23 @@
+<div class="w-64 bg-blue-900 text-white fixed h-full">
+    <div class="flex flex-col items-center py-8">
+        <i class="fas fa-tachometer-alt fa-3x mb-4"></i>
+        <h2 class="text-2xl font-bold mb-4">Exam System</h2>
+
+        <!-- Admin Section -->
+        <ul class="space-y-6">
+            <li><a href="user/dashboard" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full"><i
+                        class="fas fa-home mr-2"></i> Home</a></li>
+            <li><a href="user/profile" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full"><i
+                        class="fas fa-user mr-2"></i> Profile</a></li>
+            <li><a href="user/subject" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full"><i
+                        class="fas fa-cogs mr-2"></i> Exams</a></li>
+            <li><a href="user/reports" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full"><i
+                        class="fas fa-chart-line mr-2"></i> Reports</a></li>
+            <li *ngIf="isLoggedIn()">
+                <a (click)="logout()" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

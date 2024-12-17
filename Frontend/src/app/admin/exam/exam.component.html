@@ -1,0 +1,72 @@
+<div class="container mx-auto p-4 max-w-xl">
+    <!-- Subject Selection -->
+    <div class="mb-6 text-center">
+        <h1 class="text-2xl font-bold text-blue-800">Select a Subject</h1>
+
+        <form [formGroup]="examForm" class="mt-4">
+            <select id="subject" formControlName="selectedSubject"
+                class="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:ring-2 focus:ring-blue-500"
+                [disabled]="isLoading" (change)="onSubjectChange()">
+                <option value="" disabled selected>Select a subject</option>
+                <option *ngFor="let subject of subjects" [value]="subject.id">{{ subject.name }}</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Add New Exam -->
+    <div *ngIf="examForm.value.selectedSubject" class="mt-6">
+        <h2 class="text-lg font-semibold text-center mb-4">Add New Exam</h2>
+        <form (ngSubmit)="onAddExam()" class="flex space-x-4">
+            <input id="examTitle" type="text" [(ngModel)]="newExamTitle" name="newExamTitle"
+                class="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:ring-2 focus:ring-green-500"
+                placeholder="Enter exam title" />
+            <button type="submit" [disabled]="isLoading || !newExamTitle"
+                class="bg-green-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-500 w-auto">
+                {{ isLoading ? 'Adding...' : 'Add Exam' }}
+            </button>
+        </form>
+    </div>
+
+    <!-- Exam List -->
+    <div *ngIf="exams.length > 0" class="mt-6 space-y-4">
+        <h2 class="text-lg font-semibold text-center mb-4">Available Exams</h2>
+        <ul class="space-y-4">
+            <li *ngFor="let exam of exams"
+                class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <h3 class="font-bold text-blue-600 mb-2">{{ exam.title }}</h3>
+
+                <!-- Update and Delete Controls -->
+                <div class="flex space-x-4">
+                    <input type="text" [(ngModel)]="exam.newName"
+                        class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="New name" />
+                    <button (click)="onUpdateExam(exam.id, exam.newName)" [disabled]="isLoading || !exam.newName"
+                        class="bg-yellow-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-500">
+                        {{ isLoading ? 'Updating...' : 'Update' }}
+                    </button>
+                    <button (click)="onDeleteExam(exam.id)"
+                        class="bg-red-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-red-600 focus:ring-2 focus:ring-red-500">
+                        Delete
+                    </button>
+                    <!-- Link to Navigate to Manage Exam Page -->
+                    <a [routerLink]="['/admin/exam/manage-exam', exam.id]"
+                        class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 inline-flex items-center justify-center gap-2">
+                        <i class="fas fa-cogs"></i> <!-- Icon for manage exam -->
+                        Manage Exam
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- No Exams Message -->
+    <div *ngIf="exams.length === 0 && examForm.value.selectedSubject && !isLoading"
+        class="text-center text-gray-600 mt-4">
+        No exams available for the selected subject.
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="text-red-500 text-center mt-4">
+        {{ errorMessage }}
+    </div>
+</div>

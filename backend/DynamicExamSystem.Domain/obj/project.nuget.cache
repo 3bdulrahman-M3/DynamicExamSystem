@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mski1vpt+oA=",
+  "dgSpecHash": "YRGQ1DKt6Qk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\عبد الرحمن\\source\\repos\\DynamicExamSystem\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
+  "projectFilePath": "C:\\Users\\عبد الرحمن\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\عبد الرحمن\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\عبد الرحمن\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

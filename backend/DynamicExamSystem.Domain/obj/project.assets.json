@@ -6530,11 +6530,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\عبد الرحمن\\source\\repos\\DynamicExamSystem\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\عبد الرحمن\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
       "projectName": "DynamicExamSystem.Domain",
-      "projectPath": "C:\\Users\\عبد الرحمن\\source\\repos\\DynamicExamSystem\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
+      "projectPath": "C:\\Users\\عبد الرحمن\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj",
       "packagesPath": "C:\\Users\\عبد الرحمن\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\عبد الرحمن\\source\\repos\\DynamicExamSystem\\DynamicExamSystem.Domain\\obj\\",
+      "outputPath": "C:\\Users\\عبد الرحمن\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

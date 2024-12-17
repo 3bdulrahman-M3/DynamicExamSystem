@@ -1,0 +1,57 @@
+<div class="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+  <h1 class="text-2xl font-semibold mb-4">Manage Exam - Add Question</h1>
+
+  <!-- Error Message or Loading Indicator -->
+  <div *ngIf="errorMessage || isLoading" class="mt-4 text-center">
+    <div *ngIf="isLoading" class="text-blue-500">Loading...</div>
+    <div *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</div>
+  </div>
+
+  <!-- Add New Question -->
+  <div class="mb-6">
+    <input type="text" [(ngModel)]="newQuestionText" placeholder="Enter new question"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+    <button (click)="addQuestion()"
+      class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      Add Question
+    </button>
+  </div>
+
+  <!-- Questions List -->
+  <div *ngFor="let question of questions; let i = index" id="question-{{i}}" class="mb-6">
+    <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+      <p class="text-lg font-medium mb-2">{{ question.text }}</p>
+
+      <!-- Display existing answers -->
+      <div *ngIf="question.answers && question.answers.length > 0" class="space-y-3 mb-4">
+        <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
+          <p class="text-gray-700">{{ answer.text }}</p>
+          <span *ngIf="answer.isCorrect" class="text-green-500 text-xs">Correct</span>
+
+          <!-- Delete Answer Button -->
+          <button (click)="deleteAnswer(question.id, answer.id)" class="text-red-500 hover:text-red-700">
+            Delete
+          </button>
+        </div>
+      </div>
+
+      <!-- Add new answer -->
+      <div class="space-y-3">
+        <input id="answer-{{ question.id }}" type="text" [(ngModel)]="newAnswers[question.id]"
+          placeholder="Enter your answer"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
+
+        <div class="flex items-center space-x-3">
+          <label for="isCorrect-{{ question.id }}" class="text-sm font-medium text-gray-700">Correct Answer?</label>
+          <input id="isCorrect-{{ question.id }}" type="checkbox" [(ngModel)]="correctAnswers[question.id]"
+            class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500" />
+        </div>
+
+        <button (click)="addAnswer(question.id)"
+          class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Add Answer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

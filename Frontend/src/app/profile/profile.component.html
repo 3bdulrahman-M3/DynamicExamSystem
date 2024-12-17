@@ -1,0 +1,25 @@
+<div *ngIf="isLoading" class="text-center mt-10">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="errorMessage" class="text-center mt-10 text-red-500">
+    <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="!isLoading && !errorMessage" class="profile-container">
+    <div class="p-5 bg-white shadow-lg rounded-md">
+        <h2 class="text-xl font-bold mb-4">User Profile</h2>
+        <div class="flex flex-col mb-2">
+            <span class="font-semibold">User Name:</span>
+            <span>{{ userProfile.userName }}</span>
+        </div>
+        <div class="flex flex-col mb-2">
+            <span class="font-semibold">Email:</span>
+            <span>{{ userProfile.email }}</span>
+        </div>
+        <div *ngIf="role" class="flex flex-col mb-2">
+            <span class="font-semibold">Role:</span>
+            <span>{{ role }}</span>
+        </div>
+    </div>
+</div>

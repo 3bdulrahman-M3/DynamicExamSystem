@@ -11,3 +11,16 @@ C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Do
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\ref\DynamicExamSystem.Domain.dll
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.csproj.AssemblyReference.cache
 C:\Users\عبد الرحمن\source\repos\DynamicExamSystem\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.sourcelink.json
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\bin\Debug\net8.0\DynamicExamSystem.Domain.deps.json
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\bin\Debug\net8.0\DynamicExamSystem.Domain.dll
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\bin\Debug\net8.0\DynamicExamSystem.Domain.pdb
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.csproj.AssemblyReference.cache
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.AssemblyInfoInputs.cache
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.AssemblyInfo.cs
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.sourcelink.json
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.dll
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\refint\DynamicExamSystem.Domain.dll
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\DynamicExamSystem.Domain.pdb
+C:\Users\عبد الرحمن\source\repos\ab\DynamicExamSystem\backend\DynamicExamSystem.Domain\obj\Debug\net8.0\ref\DynamicExamSystem.Domain.dll
