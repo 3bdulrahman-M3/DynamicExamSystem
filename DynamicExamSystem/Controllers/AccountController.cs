@@ -31,14 +31,62 @@ namespace DynamicExamSystem.Controllers
             await _signInManager.SignOutAsync();
             return Ok(new { message = "Logout successful." });
         }
+
         [Authorize(Roles = "Admin")]
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<IActionResult> GetAllStudents()
         {
-            var users = _userManager.Users.ToList();
-            var userDtos = _mapper.Map<List<ApplicationUserDto>>(users);
+            var allUsers = await _userManager.GetUsersInRoleAsync("Student");
+            if (allUsers == null || !allUsers.Any())
+            {
+                return NotFound("No students found.");
+            }
+            var studentDtos = _mapper.Map<List<ApplicationUserDto>>(allUsers);
 
-            return Ok(userDtos);
+            return Ok(studentDtos);
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                return NoContent();
+            }
+
+            return BadRequest("Failed to delete user.");
+        }
+
+        [Authorize(Roles = " Admin,Student")]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUserById(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound(new { message = "User not found" });
+            }
+
+            var userDto = new
+            {
+                user.UserName,
+                user.Email,
+            };
+
+            return Ok(userDto);
+        }
+
+
     }
 }

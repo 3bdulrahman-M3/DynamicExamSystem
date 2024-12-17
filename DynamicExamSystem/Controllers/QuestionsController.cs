@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DynamicExamSystem.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class QuestionsController : ControllerBase
@@ -48,7 +48,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("Answer added successfully.");
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{answerId}")]
         public async Task<ActionResult> DeleteAnswer( int answerId)
         {

@@ -21,7 +21,7 @@ namespace Application.Helpers
             CreateMap<Subject, SubjectDto>();
             CreateMap<SubjectDto, Subject>();
 
-            CreateMap<Exam, ExamDto>();
+            CreateMap<Exam, ExamDto>(); 
             CreateMap<CreateExamDto, Exam>();
             CreateMap<Exam, CreateExamDto>();
 
@@ -33,7 +33,7 @@ namespace Application.Helpers
             CreateMap<QuestionEditDto, Question>();
 
             CreateMap<Question, QuestionsDto>()
-               .ForMember(dest => dest.Answers, opt => opt.MapFrom(src => src.Answers));  // Maps Answers to AnswerDto
+               .ForMember(dest => dest.Answers, opt => opt.MapFrom(src => src.Answers));
 
             // Map Answer to AnswerDto
             CreateMap<Answer, AnswerDto>();
@@ -43,6 +43,10 @@ namespace Application.Helpers
             CreateMap<OptionDto, Answer>()
             .ForMember(dest => dest.Text, opt => opt.MapFrom(src => src.Text))
             .ForMember(dest => dest.IsCorrect, opt => opt.MapFrom(src => src.IsCorrect));
+
+            CreateMap<ApplicationUser, ApplicationUserDto>()
+               .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
+               .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email));
 
         }
     }

@@ -14,10 +14,24 @@ namespace Application.Dtos
     public class ExamResultDto
     {
         public int ExamId { get; set; }
+        public string Title { get; set; }
         public int TotalQuestions { get; set; }
         public int CorrectAnswers { get; set; }
         public int Score { get; set; }
     }
+
+    public class StudentHistoryDTO
+    {
+        public string UserName { get; set; }
+        public string ExamTitle { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public TimeSpan TimeTaken { get; set; }
+        public int Score { get; set; }
+        public int FinalScore { get; set; }
+    }
+
+
 
 
 

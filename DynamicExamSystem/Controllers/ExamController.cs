@@ -6,6 +6,7 @@ using DynamicExamSystem.infrastructure.repository.Interfaces;
 using DynamicExamSystem.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace DynamicExamSystem.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ExamController : ControllerBase
@@ -72,9 +74,8 @@ namespace DynamicExamSystem.Controllers
                 return NotFound($"Exam with ID {examId} not found.");
             }
 
-            // Use AutoMapper to map questions and answers
             var questionDtos = _mapper.Map<IEnumerable<QuestionsDto>>(exam.Questions);
-
+            
             return Ok(questionDtos);
         }
 
@@ -171,19 +172,86 @@ namespace DynamicExamSystem.Controllers
         [HttpGet("exam/results")]
         public async Task<ActionResult<List<ExamResultDto>>> GetExamResults()
         {
-            // Retrieve user ID from claims
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized("User not logged in.");
 
-            // Fetch the exam results using the repository
             var results = await _examResultRepository.GetStudentExamResultsAsync(userId);
 
             if (results == null || !results.Any())
                 return NotFound("No exam results found for the user.");
 
             return Ok(results);
+        }
+        [Authorize(Roles = " Admin")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteExam(int id)
+        {
+
+            var exam = await _examRepository.GetExamByIdAsync(id);
+            if (exam == null)
+            {
+                return NotFound(new { message = "Exam not found." });
+            }
+
+            await _examRepository.DeleteExamAsync(exam);
+            await _examRepository.SaveChangesAsync();
+
+            return Ok(new { message = "Exam deleted successfully." });
+        }
+        //[Authorize(Roles = " Admin")]
+        [HttpGet("history")]
+        public async Task<ActionResult<IEnumerable<StudentHistoryDTO>>> GetAllUserHistory(int pageNumber = 1, int pageSize = 10)
+        {
+            var histories = await _examResultRepository.GetAllStudentHistoryAsync();
+
+            if (histories == null || !histories.Any())
+            {
+                return NotFound("No student history found.");
+            }
+            var totalCount = histories.Count();
+
+            var pagedHistories = histories
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+            var studentHistoryDtos = _mapper.Map<IEnumerable<StudentHistoryDTO>>(pagedHistories);
+            return Ok(new
+            {
+                data = studentHistoryDtos,
+                totalCount,
+                pageNumber,
+                pageSize
+            });
+        }
+
+
+        //[Authorize(Roles = " student")]
+        [HttpGet("history/{studentId}")]
+        public async Task<ActionResult> GetUserHistory(string studentId, int pageNumber = 1, int pageSize = 10)
+        {
+            var histories = await _examResultRepository.GetStudentHistoryByIdAsync(studentId);
+
+            if (histories == null || !histories.Any())
+            {
+                return NotFound("No student history found.");
+            }
+            var totalCount = histories.Count();
+
+            var pagedHistories = histories
+                .Skip((pageNumber - 1) * pageSize)  
+                .Take(pageSize)                     
+                .ToList();                          
+
+            var studentHistoryDtos = _mapper.Map<IEnumerable<StudentHistoryDTO>>(pagedHistories);
+            return Ok(new
+            {
+                data = studentHistoryDtos, 
+                totalCount,                 
+                pageNumber,                 
+                pageSize                   
+            });
         }
 
 

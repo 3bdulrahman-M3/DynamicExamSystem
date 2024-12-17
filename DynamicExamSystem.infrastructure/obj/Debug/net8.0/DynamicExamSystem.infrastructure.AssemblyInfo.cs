@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DynamicExamSystem.infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bee564980e6ee5eff1aa6d0f1ef259743a30803")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e757fe21197e2dbb380c9829d8325443cb04fb2")]
 [assembly: System.Reflection.AssemblyProductAttribute("DynamicExamSystem.infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DynamicExamSystem.infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

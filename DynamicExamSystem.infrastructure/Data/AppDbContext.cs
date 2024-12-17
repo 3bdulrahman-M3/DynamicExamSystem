@@ -24,8 +24,24 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
         //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ExamConfiguration).Assembly);
 
+        //modelBuilder.Entity<StudentHistory>()
+        //    .HasKey(e => new { e.ExamId, e.UserId });
+
         modelBuilder.Entity<StudentHistory>()
-            .HasKey(e => new { e.ExamId, e.UserId });
+            .HasKey(e => e.Id);
+
+        modelBuilder.Entity<StudentHistory>()
+            .HasOne(e => e.Exam)
+            .WithMany()
+            .HasForeignKey(e => e.ExamId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<StudentHistory>()
+            .HasOne(e => e.User)
+            .WithMany(u => u.ExamHistories)
+            .HasForeignKey(e => e.UserId)
+            .OnDelete(DeleteBehavior.Cascade);
+
 
     }
 

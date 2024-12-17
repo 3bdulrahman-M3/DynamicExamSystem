@@ -139,7 +139,7 @@ namespace DynamicExamSystem.Controllers
                     new Claim(ClaimTypes.Role,user.Role),
                     new Claim(JwtRegisteredClaimNames.Iat,DateTime.Now.ToUniversalTime().ToString())
                 }),
-                Expires = DateTime.Now.AddHours(1),
+                Expires = DateTime.Now.AddDays(30),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);

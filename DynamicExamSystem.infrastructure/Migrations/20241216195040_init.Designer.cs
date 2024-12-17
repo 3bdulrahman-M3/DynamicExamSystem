@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DynamicExamSystem.infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241215142542_StudentHistory")]
-    partial class StudentHistory
+    [Migration("20241216195040_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,19 +113,19 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
             modelBuilder.Entity("DynamicExamSystem.Models.StudentHistory", b =>
                 {
-                    b.Property<int>("ExamId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FinalScore")
+                    b.Property<int>("ExamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("FinalScore")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
@@ -134,7 +134,13 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ExamId", "UserId");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExamId");
 
                     b.HasIndex("UserId");
 

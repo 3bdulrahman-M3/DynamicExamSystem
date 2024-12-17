@@ -211,12 +211,13 @@ namespace DynamicExamSystem.infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StudentExams",
+                name: "StudentHistories",
                 columns: table => new
                 {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ExamId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Score = table.Column<int>(type: "int", nullable: false),
@@ -224,15 +225,15 @@ namespace DynamicExamSystem.infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentExams", x => new { x.ExamId, x.UserId });
+                    table.PrimaryKey("PK_StudentHistories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_StudentExams_AspNetUsers_UserId",
+                        name: "FK_StudentHistories_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StudentExams_Exams_ExamId",
+                        name: "FK_StudentHistories_Exams_ExamId",
                         column: x => x.ExamId,
                         principalTable: "Exams",
                         principalColumn: "Id",
@@ -315,8 +316,13 @@ namespace DynamicExamSystem.infrastructure.Migrations
                 column: "ExamId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_StudentExams_UserId",
-                table: "StudentExams",
+                name: "IX_StudentHistories_ExamId",
+                table: "StudentHistories",
+                column: "ExamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StudentHistories_UserId",
+                table: "StudentHistories",
                 column: "UserId");
         }
 
@@ -342,7 +348,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "StudentExams");
+                name: "StudentHistories");
 
             migrationBuilder.DropTable(
                 name: "Questions");

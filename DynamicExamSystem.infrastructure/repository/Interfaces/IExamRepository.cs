@@ -20,6 +20,7 @@ namespace DynamicExamSystem.infrastructure.repository.Interfaces
         Task<Exam?> GetExamWithQuestionsAsync(int examId);
         Task<List<Answer>> GetAnswersByIdsAsync(List<int> answerIds);
         Task<ExamResultDto> EvaluateExamAsync(int examId, string userId, List<AnswerSubmissionDto> answers);
+        Task DeleteExamAsync(Exam exam);
         Task Remove(Question question);
         Task SaveChangesAsync();
         void Update(Exam exam);

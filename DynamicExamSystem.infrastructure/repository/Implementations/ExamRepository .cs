@@ -130,7 +130,7 @@ public class ExamRepository : IExamRepository
         };
 
         await _context.StudentHistories.AddAsync(history);
-        
+
         await _context.SaveChangesAsync();
 
         return new ExamResultDto
@@ -140,5 +140,9 @@ public class ExamRepository : IExamRepository
             CorrectAnswers = correctAnswers,
             Score = score
         };
+    }
+    public async Task DeleteExamAsync(Exam exam)
+    {
+        _context.Exams.Remove(exam);
     }
 }

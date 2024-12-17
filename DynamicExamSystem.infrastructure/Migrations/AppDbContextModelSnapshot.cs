@@ -44,7 +44,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers", (string)null);
+                    b.ToTable("Answers");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Domain.Models.Subject", b =>
@@ -61,7 +61,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subjects", (string)null);
+                    b.ToTable("Subjects");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.Exam", b =>
@@ -83,7 +83,7 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("SubjectId");
 
-                    b.ToTable("Exams", (string)null);
+                    b.ToTable("Exams");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.Question", b =>
@@ -105,24 +105,24 @@ namespace DynamicExamSystem.infrastructure.Migrations
 
                     b.HasIndex("ExamId");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.Models.StudentHistory", b =>
                 {
-                    b.Property<int>("ExamId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FinalScore")
+                    b.Property<int>("ExamId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id")
+                    b.Property<int>("FinalScore")
                         .HasColumnType("int");
 
                     b.Property<int>("Score")
@@ -131,11 +131,17 @@ namespace DynamicExamSystem.infrastructure.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ExamId", "UserId");
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ExamId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("StudentHistories", (string)null);
+                    b.ToTable("StudentHistories");
                 });
 
             modelBuilder.Entity("DynamicExamSystem.infrastructure.Data.ApplicationUser", b =>
