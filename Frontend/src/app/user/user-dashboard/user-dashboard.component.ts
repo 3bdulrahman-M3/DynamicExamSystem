@@ -11,6 +11,9 @@ import { AuthenticationService } from '../../services/auth.service';
 })
 export class UserDashboardComponent implements OnInit {
   totalExams: number = 0; // Total number of exams
+  totalPassedExams: number = 0; // Number of passed exams
+  totalFailedExams: number = 0; // Number of failed exams
+  totalSubjects: number = 0; // Total number of subjects
   errorMessage: string = ''; // For displaying errors
   isLoading: boolean = false; // For loading state
   nameId: string | null = null; // Store the user ID
@@ -25,6 +28,7 @@ export class UserDashboardComponent implements OnInit {
     this.getUserId(); // Get the user ID
     this.fetchUserDetails(); // Fetch user details using the ID
     this.calculateExamHistory(); // Calculate total exams
+    this.fetchTotalSubjects(); // Fetch total subjects
   }
 
   // Retrieve the user ID from localStorage
@@ -64,7 +68,22 @@ export class UserDashboardComponent implements OnInit {
       .get<any[]>('http://localhost:5063/api/Exam/exam/results')
       .subscribe({
         next: (data) => {
-          this.totalExams = data.length; // Calculate the total number of exams
+          console.log('Fetched Exam Results:', data); // Debug: check the structure of the data
+
+          if (Array.isArray(data)) {
+            this.totalExams = data.length; // Calculate the total number of exams
+
+            // Filter the exams by final score and count passed and failed exams
+            this.totalPassedExams = data.filter(
+              (exam) => exam.score > 50
+            ).length;
+            this.totalFailedExams = data.filter(
+              (exam) => exam.score <= 50
+            ).length;
+          } else {
+            this.errorMessage = 'Received data is not in the expected format.';
+          }
+
           this.isLoading = false;
         },
         error: (err) => {
@@ -74,5 +93,22 @@ export class UserDashboardComponent implements OnInit {
           this.isLoading = false;
         },
       });
+  }
+
+  // Fetch total subjects from the API
+  fetchTotalSubjects(): void {
+    this.isLoading = true;
+
+    this.http.get<any[]>('http://localhost:5063/api/Subject').subscribe({
+      next: (data) => {
+        this.totalSubjects = data.length; // Calculate the total number of subjects
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error('Failed to fetch subjects', err);
+        this.errorMessage = 'Could not fetch subjects. Please try again later.';
+        this.isLoading = false;
+      },
+    });
   }
 }

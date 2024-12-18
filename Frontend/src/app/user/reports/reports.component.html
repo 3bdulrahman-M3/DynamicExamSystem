@@ -8,9 +8,16 @@
         Page {{ pageNumber }} of {{ totalPages }}
     </span>
     <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" (click)="nextPage()"
-        [disabled]="pageNumber * pageSize >= totalCount">
+        [disabled]="pageNumber === totalPages">
         Next
     </button>
+</div>
+
+<!-- Page Size Input -->
+<div class="mt-4">
+    <label for="pageSize" class="text-gray-700 mr-2">Page Size:</label>
+    <input id="pageSize" type="number" [(ngModel)]="pageSize" min="1" (change)="onPageSizeChange()"
+        class="px-4 py-2 rounded-md border-gray-300" [value]="pageSize" />
 </div>
 
 <!-- Exam Results Section -->

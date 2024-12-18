@@ -19,6 +19,7 @@ export class ManageExamComponent implements OnInit {
   newAnswers: { [key: number]: string } = {};
   correctAnswers: { [key: number]: boolean } = {};
   newQuestionText: string = ''; // New question text model
+  updatedQuestionText: { [key: number]: string } = {}; // Store updated question text
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -53,9 +54,7 @@ export class ManageExamComponent implements OnInit {
       return;
     }
 
-    const newQuestion = {
-      text: this.newQuestionText,
-    };
+    const newQuestion = { text: this.newQuestionText };
 
     this.isLoading = true;
     this.errorMessage = '';
@@ -67,21 +66,72 @@ export class ManageExamComponent implements OnInit {
       )
       .subscribe({
         next: () => {
-          this.fetchQuestions(); // Refresh questions after adding the question
+          this.fetchQuestions(); // Refresh the questions list
           this.newQuestionText = ''; // Clear input field
           this.isLoading = false;
-          setTimeout(() => {
-            const element = document.getElementById(
-              `question-${this.questions.length}`
-            );
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 1000); // Scroll after loading
+          window.location.reload(); // Refresh the page
         },
         error: (err) => {
           console.error(err);
           this.errorMessage = 'Failed to add the question. Please try again.';
+          this.isLoading = false;
+        },
+      });
+  }
+
+  updateQuestion(questionId: number): void {
+    const updatedText = this.updatedQuestionText[questionId];
+
+    if (!updatedText.trim()) {
+      this.errorMessage = 'Please enter a question text.';
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.http
+      .put(
+        `http://localhost:5063/api/Exam/${this.examId}/questions/${questionId}`,
+        { text: updatedText },
+        { responseType: 'text' } // Explicitly set response type to text
+      )
+      .subscribe({
+        next: (response: string) => {
+          alert(response || 'Question updated successfully!');
+          this.fetchQuestions(); // Refresh the questions list
+          this.updatedQuestionText[questionId] = ''; // Clear input field
+          this.isLoading = false;
+          window.location.reload(); // Refresh the page
+        },
+        error: (err) => {
+          console.error(err);
+          this.errorMessage =
+            'Failed to update the question. Please try again.';
+          this.isLoading = false;
+        },
+      });
+  }
+
+  deleteQuestion(questionId: number): void {
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.http
+      .delete(`http://localhost:5063/api/Exam/DeleteQuestion/${questionId}`, {
+        responseType: 'text', // Explicitly set response type to text
+      })
+      .subscribe({
+        next: (response: string) => {
+          // alert(response || 'Question deleted successfully!');
+          this.fetchQuestions(); // Refresh the questions list
+          this.isLoading = false;
+          window.location.reload(); // Refresh the page
+        },
+        error: (err) => {
+          console.error(err);
+          this.errorMessage =
+            'Failed to delete the question. Please try again.';
           this.isLoading = false;
         },
       });
@@ -123,13 +173,13 @@ export class ManageExamComponent implements OnInit {
         `http://localhost:5063/api/Questions/${questionId}/Answer`,
         newAnswer,
         {
-          responseType: 'text' as 'json',
+          responseType: 'text' as 'json', // Handle response as text
         }
       )
       .subscribe({
         next: () => {
-          alert('Answer added successfully!');
-          this.fetchQuestions(); // Refresh questions after adding the answer
+          // alert('Answer added successfully!');
+          this.fetchQuestions(); // Refresh the questions list
           this.newAnswers[questionId] = ''; // Clear input field
           this.isLoading = false;
         },
@@ -147,12 +197,12 @@ export class ManageExamComponent implements OnInit {
 
     this.http
       .delete(`http://localhost:5063/api/Questions/${answerId}`, {
-        responseType: 'text',
+        responseType: 'text', // Handle response as text
       })
       .subscribe({
         next: (response: string) => {
-          alert(response || 'Answer deleted successfully!');
-          this.fetchQuestions(); // Refresh questions after deleting the answer
+          // alert(response || 'Answer deleted successfully!');
+          this.fetchQuestions(); // Refresh the questions list
           this.isLoading = false;
         },
         error: (err) => {
@@ -161,5 +211,10 @@ export class ManageExamComponent implements OnInit {
           this.isLoading = false;
         },
       });
+  }
+
+  // Start editing a question
+  startEditingQuestion(questionId: number, questionText: string): void {
+    this.updatedQuestionText[questionId] = questionText;
   }
 }

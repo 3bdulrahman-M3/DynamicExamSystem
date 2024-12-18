@@ -13,24 +13,45 @@
       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
     <button (click)="addQuestion()"
       class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      Add Question
+      <i class="fas fa-plus mr-2"></i> Add Question
     </button>
   </div>
 
   <!-- Questions List -->
   <div *ngFor="let question of questions; let i = index" id="question-{{i}}" class="mb-6">
     <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
-      <p class="text-lg font-medium mb-2">{{ question.text }}</p>
+      <div class="flex justify-between items-center">
+        <p class="text-lg font-medium mb-2">{{ question.text }}</p>
+
+        <!-- Edit Question Button -->
+        <button (click)="startEditingQuestion(question.id, question.text)" class="text-blue-500 hover:text-blue-700">
+          <i class="fas fa-edit"></i> Edit
+        </button>
+
+        <!-- Delete Question Button -->
+        <button (click)="deleteQuestion(question.id)" class="text-red-500 hover:text-red-700">
+          <i class="fas fa-trash-alt"></i> Delete
+        </button>
+      </div>
+
+      <!-- Editable Text Area for Question -->
+      <div *ngIf="updatedQuestionText[question.id]">
+        <textarea [(ngModel)]="updatedQuestionText[question.id]"
+          class="w-full p-2 border border-gray-300 rounded-lg mt-2"></textarea>
+        <button (click)="updateQuestion(question.id)" class="w-full bg-green-600 text-white py-2 rounded-lg mt-2">
+          <i class="fas fa-check mr-2"></i> Update Question
+        </button>
+      </div>
 
       <!-- Display existing answers -->
-      <div *ngIf="question.answers && question.answers.length > 0" class="space-y-3 mb-4">
+      <div *ngIf="question.answers && question.answers.length > 0" class="space-y-3 mb-4 mr-6">
         <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
           <p class="text-gray-700">{{ answer.text }}</p>
           <span *ngIf="answer.isCorrect" class="text-green-500 text-xs">Correct</span>
 
           <!-- Delete Answer Button -->
           <button (click)="deleteAnswer(question.id, answer.id)" class="text-red-500 hover:text-red-700">
-            Delete
+            <i class="fas fa-trash-alt"></i> Delete
           </button>
         </div>
       </div>
@@ -49,7 +70,7 @@
 
         <button (click)="addAnswer(question.id)"
           class="w-full bg-blue-600 text-white py-2 rounded-lg mt-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          Add Answer
+          <i class="fas fa-plus mr-2"></i> Add Answer
         </button>
       </div>
     </div>

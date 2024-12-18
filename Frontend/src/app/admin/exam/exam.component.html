@@ -1,7 +1,7 @@
-<div class="container mx-auto p-4 max-w-xl">
+<div class="container mx-auto p-4 max-w-full">
     <!-- Subject Selection -->
-    <div class="mb-6 text-center">
-        <h1 class="text-2xl font-bold text-blue-800">Select a Subject</h1>
+    <div class="mb-4 text-center">
+        <h1 class="text-2xl font-semibold text-blue-800">Select a Subject</h1>
 
         <form [formGroup]="examForm" class="mt-4">
             <select id="subject" formControlName="selectedSubject"
@@ -14,22 +14,22 @@
     </div>
 
     <!-- Add New Exam -->
-    <div *ngIf="examForm.value.selectedSubject" class="mt-6">
-        <h2 class="text-lg font-semibold text-center mb-4">Add New Exam</h2>
+    <div *ngIf="examForm.value.selectedSubject" class="mt-4">
+        <h2 class="text-lg font-semibold text-center mb-3">Add New Exam</h2>
         <form (ngSubmit)="onAddExam()" class="flex space-x-4">
             <input id="examTitle" type="text" [(ngModel)]="newExamTitle" name="newExamTitle"
-                class="w-full p-3 border border-gray-300 rounded-lg shadow-md focus:ring-2 focus:ring-green-500"
+                class="w-full p-2 border border-gray-300 rounded-lg shadow-md focus:ring-2 focus:ring-green-500"
                 placeholder="Enter exam title" />
             <button type="submit" [disabled]="isLoading || !newExamTitle"
-                class="bg-green-500 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-500 w-auto">
+                class="bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600 focus:ring-2 focus:ring-green-500">
                 {{ isLoading ? 'Adding...' : 'Add Exam' }}
             </button>
         </form>
     </div>
 
     <!-- Exam List -->
-    <div *ngIf="exams.length > 0" class="mt-6 space-y-4">
-        <h2 class="text-lg font-semibold text-center mb-4">Available Exams</h2>
+    <div *ngIf="exams.length > 0" class="mt-4 space-y-4">
+        <h2 class="text-lg font-semibold text-center mb-3">Available Exams</h2>
         <ul class="space-y-4">
             <li *ngFor="let exam of exams"
                 class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -61,7 +61,7 @@
 
     <!-- No Exams Message -->
     <div *ngIf="exams.length === 0 && examForm.value.selectedSubject && !isLoading"
-        class="text-center text-gray-600 mt-4">
+        class="text-center text-gray-600 mt-3">
         No exams available for the selected subject.
     </div>
 

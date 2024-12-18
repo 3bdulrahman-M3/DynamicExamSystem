@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DynamicExamSystem.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ExamController : ControllerBase
@@ -31,7 +31,6 @@ namespace DynamicExamSystem.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        // Create an Exam
         [HttpPost]
         public async Task<ActionResult<CreateExamDto>> CreateExam([FromBody] CreateExamDto examDto)
         {
@@ -48,7 +47,6 @@ namespace DynamicExamSystem.Controllers
             return Ok(createdExamDto);
         }
 
-        // Get Exams by SubjectId
         [HttpGet("subject/{subjectId}")]
         public async Task<ActionResult<IEnumerable<ExamDto>>> GetExamsBySubjectId(int subjectId)
         {
@@ -63,7 +61,6 @@ namespace DynamicExamSystem.Controllers
             return Ok(examDtos);
         }
 
-        // Get Questions in Exam
         [HttpGet("{examId}/questions")]
         public async Task<ActionResult<IEnumerable<QuestionsDto>>> GetQuestionsInExam(int examId)
         {
@@ -82,7 +79,6 @@ namespace DynamicExamSystem.Controllers
 
 
         [Authorize(Roles = "Admin")]
-        // Add Question to Exam
         [HttpPost("{examId}/questions")]
         public async Task<ActionResult<QuestionDto>> AddQuestionToExam(int examId, [FromBody] QuestionDto questionDto)
         {
@@ -103,7 +99,6 @@ namespace DynamicExamSystem.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        // Update Question in Exam
         [HttpPut("{examId}/questions/{questionId}")]
         public async Task<ActionResult<QuestionDto>> UpdateQuestionInExam(int examId, int questionId, [FromBody] QuestionEditDto questionDto)
         {
@@ -119,14 +114,13 @@ namespace DynamicExamSystem.Controllers
                 return NotFound("Question not found in this exam.");
             }
 
-            _mapper.Map(questionDto, question);  // Use AutoMapper to update question properties
+            _mapper.Map(questionDto, question);  
 
             await _examRepository.SaveChangesAsync();
             return Ok("The question was updated successfully.");
         }
 
         [Authorize(Roles = "Admin")]
-        // Update Exam Name
         [HttpPut("{examId}")]
         public async Task<ActionResult> UpdateExamName(int examId, [FromBody] UpdateExamNameRequestDto request)
         {
@@ -149,7 +143,6 @@ namespace DynamicExamSystem.Controllers
 
 
 
-        // Submit Exam Answers
         [Authorize(Roles = "Student")]
         [HttpPost("exam/{examId}/submit")]
         public async Task<ActionResult<ExamResultDto>> SubmitExamAnswers(int examId, [FromBody] List<AnswerSubmissionDto> answers)
@@ -184,7 +177,7 @@ namespace DynamicExamSystem.Controllers
 
             return Ok(results);
         }
-        [Authorize(Roles = " Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExam(int id)
         {
@@ -200,9 +193,9 @@ namespace DynamicExamSystem.Controllers
 
             return Ok(new { message = "Exam deleted successfully." });
         }
-        //[Authorize(Roles = " Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet("history")]
-        public async Task<ActionResult<IEnumerable<StudentHistoryDTO>>> GetAllUserHistory(int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult<IEnumerable<StudentHistoryDTO>>> GetAllUserHistory(int pageNumber = 1, int pageSize = 6)
         {
             var histories = await _examResultRepository.GetAllStudentHistoryAsync();
 
@@ -227,9 +220,9 @@ namespace DynamicExamSystem.Controllers
         }
 
 
-        //[Authorize(Roles = " student")]
+        [Authorize(Roles = "Student")]
         [HttpGet("history/{studentId}")]
-        public async Task<ActionResult> GetUserHistory(string studentId, int pageNumber = 1, int pageSize = 10)
+        public async Task<ActionResult> GetUserHistory(string studentId, int pageNumber = 1, int pageSize = 6)
         {
             var histories = await _examResultRepository.GetStudentHistoryByIdAsync(studentId);
 
@@ -252,6 +245,21 @@ namespace DynamicExamSystem.Controllers
                 pageNumber,                 
                 pageSize                   
             });
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("DeleteQuestion/{questionId}")]
+        public async Task<IActionResult> DeleteQuestionAsync(int questionId)
+        {
+            var question = await _examRepository.GetQuestionByIdAsync(questionId);
+            if (question == null)
+            {
+                return NotFound("Question not found in this exam.");
+            }
+             await _examRepository.Remove(question);
+             await _examRepository.SaveChangesAsync();
+
+            return Ok("question deleted");
         }
 
 

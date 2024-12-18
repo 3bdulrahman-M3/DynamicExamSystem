@@ -32,7 +32,6 @@ namespace DynamicExamSystem.Controllers
         [HttpPost("{questionId}/Answer")]
         public async Task<ActionResult> AddAnswer(int questionId, [FromBody] OptionDto answerDto)
         {
-            // Check if the question exists
             var question = await _questionRepository.GetByIdAsync(questionId);
             if (question == null)
             {

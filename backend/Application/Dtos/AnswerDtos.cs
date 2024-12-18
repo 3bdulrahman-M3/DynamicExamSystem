@@ -16,7 +16,8 @@ namespace Application.Dtos
     {
         public string Text { get; set; } = string.Empty;
         public bool IsCorrect { get; set; }
-    }public class OptionsDto
+    }
+    public class OptionsDto
     {
         public int Id { get; set; }
         public string Text { get; set; } = string.Empty;

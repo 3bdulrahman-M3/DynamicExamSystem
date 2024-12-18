@@ -1,36 +1,61 @@
 <!-- dashboard.component.html -->
-<div class="w-full bg-white p-8">
+<div class="w-full min-h-screen bg-gray-100 p-6">
     <!-- Dashboard Welcome Section -->
-    <div class="text-center mb-10">
-        <h1 class="text-4xl font-bold text-[#2C3E50] mb-4">Welcome to the Exam System Dashboard</h1>
-        <p class="text-lg text-gray-600 mb-6">Manage subjects, students, and exams efficiently from this dashboard.</p>
-        <i class="fas fa-cogs text-5xl text-[#3498DB] mb-4"></i>
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-[#2C3E50] mb-4">Welcome to the Dashboard</h1>
+        <p class="text-sm text-gray-600 mb-6 m-6">
+            Manage subjects, students, and exams efficiently.
+        </p>
+        <i class="fas fa-cogs text-4xl text-[#3498DB] animate-spin-slow"></i>
     </div>
 
     <!-- Dashboard Content Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Subject Card -->
-        <div class="bg-white rounded-lg shadow-xl p-6 hover:scale-105 transform transition duration-300">
-            <h3 class="text-xl font-semibold text-[#2C3E50] mb-4">Subjects</h3>
-            <i class="fas fa-book-open text-4xl text-[#3498DB] mb-4"></i>
-            <p class="text-gray-700">Manage and create subjects for exams and learning materials.</p>
-            <a href="/admin/subject" class="mt-4 text-[#3498DB] hover:underline text-lg">View Subjects</a>
+        <div
+            class="bg-white rounded-lg shadow-md p-5 hover:scale-105 transform transition-transform duration-300 group">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-book-open text-3xl text-[#3498DB] mr-3 group-hover:text-[#1ABC9C]"></i>
+                <h3 class="text-lg font-semibold text-[#2C3E50] group-hover:text-[#1ABC9C]">Subjects</h3>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 mg-6">
+                Manage and create subjects for exams.
+            </p>
+            <a href="/admin/subject"
+                class="text-[#3498DB] group-hover:text-[#1ABC9C] font-medium text-sm hover:underline">
+                View Subjects &rarr;
+            </a>
         </div>
 
         <!-- Student Card -->
-        <div class="bg-white rounded-lg shadow-xl p-6 hover:scale-105 transform transition duration-300">
-            <h3 class="text-xl font-semibold text-[#2C3E50] mb-4">Students</h3>
-            <i class="fas fa-user-graduate text-4xl text-[#3498DB] mb-4"></i>
-            <p class="text-gray-700">Add and manage student records for exam participation.</p>
-            <a href="admin/students" class="mt-4 text-[#3498DB] hover:underline text-lg">View Students</a>
+        <div
+            class="bg-white rounded-lg shadow-md p-5 hover:scale-105 transform transition-transform duration-300 group">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-user-graduate text-3xl text-[#3498DB] mr-3 group-hover:text-[#1ABC9C]"></i>
+                <h3 class="text-lg font-semibold text-[#2C3E50] group-hover:text-[#1ABC9C]">Students</h3>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">
+                Add and manage student records.
+            </p>
+            <a href="/admin/students"
+                class="text-[#3498DB] group-hover:text-[#1ABC9C] font-medium text-sm hover:underline">
+                View Students &rarr;
+            </a>
         </div>
 
         <!-- Exam Card -->
-        <div class="bg-white rounded-lg shadow-xl p-6 hover:scale-105 transform transition duration-300">
-            <h3 class="text-xl font-semibold text-[#2C3E50] mb-4">Exams</h3>
-            <i class="fas fa-clipboard-list text-4xl text-[#3498DB] mb-4"></i>
-            <p class="text-gray-700">Create, manage, and review exams for students.</p>
-            <a href="admin/exam" class="mt-4 text-[#3498DB] hover:underline text-lg">View Exam</a>
+        <div
+            class="bg-white rounded-lg shadow-md p-5 hover:scale-105 transform transition-transform duration-300 group">
+            <div class="flex items-center mb-4">
+                <i class="fas fa-clipboard-list text-3xl text-[#3498DB] mr-3 group-hover:text-[#1ABC9C]"></i>
+                <h3 class="text-lg font-semibold text-[#2C3E50] group-hover:text-[#1ABC9C]">Exams</h3>
+            </div>
+            <p class="text-sm text-gray-600 mb-4">
+                Create, manage, and review exams.
+            </p>
+            <a href="/admin/exam" class="text-[#3498DB] group-hover:text-[#1ABC9C] font-medium text-sm hover:underline">
+                View Exams &rarr;
+            </a>
         </div>
     </div>
 </div>

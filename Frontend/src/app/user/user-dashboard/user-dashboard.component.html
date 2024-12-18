@@ -2,15 +2,80 @@
     <div class="flex flex-col items-center">
         <!-- Display Username -->
         <h1 class="text-3xl font-bold text-gray-800 mb-4">
-            Welcome, {{ username|| 'guest' }}
+            Welcome, {{ username || 'guest' }}!
         </h1>
 
-        <!-- Display Total Exams -->
-        <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-sm text-center">
-            <h2 class="text-xl font-semibold text-gray-700">
-                Total Exams in History
-            </h2>
-            <p class="text-4xl font-bold text-blue-500">{{ totalExams }}</p>
+        <!-- Row 1: Total Subjects and Total Exams in History -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
+
+            <!-- Total Subjects Card -->
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.25 6.75L18.75 6.75M5.25 6.75C5.25 6.75 6 9.25 6 11.25M5.25 6.75C5.25 6.75 6 4.25 6 2.25M18.75 6.75C18.75 6.75 18 9.25 18 11.25M18.75 6.75C18.75 6.75 18 4.25 18 2.25">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Total Subjects
+                </h2>
+                <p class="text-4xl font-bold text-blue-500">{{ totalSubjects }}</p>
+                <p class="mt-2 text-gray-600">These are the subjects you have enrolled in.</p>
+            </div>
+
+            <!-- Total Exams Card -->
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 12h12M6 16h12M6 8h12"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Total Exams in History
+                </h2>
+                <p class="text-4xl font-bold text-blue-500">{{ totalExams }}</p>
+                <p class="mt-2 text-gray-600">This is the total number of exams you've taken so far.</p>
+            </div>
+        </div>
+
+        <!-- Row 2: Passed Exams and Failed Exams -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mt-6">
+
+            <!-- Total Passed Exams Card -->
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Total Passed Exams
+                </h2>
+                <p class="text-4xl font-bold text-green-500">{{ totalPassedExams }}</p>
+                <p class="mt-2 text-gray-600">These are the exams you have successfully passed.</p>
+            </div>
+
+            <!-- Total Failed Exams Card -->
+            <div class="bg-white shadow-md rounded-lg p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Total Failed Exams
+                </h2>
+                <p class="text-4xl font-bold text-red-500">{{ totalFailedExams }}</p>
+                <p class="mt-2 text-gray-600">These exams were not successful. Don't worry, you'll get them next time!
+                </p>
+            </div>
         </div>
     </div>
 

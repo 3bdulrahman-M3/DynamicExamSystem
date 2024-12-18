@@ -241,6 +241,22 @@
   },
   {
     "ContainingType": "DynamicExamSystem.Controllers.ExamController",
+    "Method": "DeleteQuestionAsync",
+    "RelativePath": "api/Exam/DeleteQuestion/{questionId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "questionId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DynamicExamSystem.Controllers.ExamController",
     "Method": "SubmitExamAnswers",
     "RelativePath": "api/Exam/exam/{examId}/submit",
     "HttpMethod": "POST",

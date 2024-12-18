@@ -28,8 +28,6 @@ namespace Application.Helpers
             // Map Question to QuestionDto
             CreateMap<Question, QuestionDto>();
             CreateMap<QuestionDto, Question>(); // For updating questions
-
-            // Map QuestionEditDto to Question (for updates)
             CreateMap<QuestionEditDto, Question>();
 
             CreateMap<Question, QuestionsDto>()

@@ -15,18 +15,17 @@
     </div>
 
     <!-- Exams Displayed in Cards -->
-    <div *ngIf="exams.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- <div *ngIf="exams.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div *ngFor="let exam of exams"
             class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
             <h3 class="text-lg font-semibold text-gray-800">{{ exam.title }}</h3>
-            <!-- <p class="text-sm text-gray-600 mt-2">Subject: {{ exam.subjectName }}</p> -->
-            <!-- Start Exam Button -->
-            <!-- <button (click)="startExam(exam.id)"
+            <p class="text-sm text-gray-600 mt-2">Subject: {{ exam.subjectName }}</p> 
+            <button (click)="startExam(exam.id)"
                 class="mt-4 w-full px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                 Start Exam
-            </button> -->
+            </button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Random Exam Button -->
     <div *ngIf="exams.length > 0" class="text-center mt-6">
@@ -34,7 +33,6 @@
             class="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
             Start Exam
         </button>
-
     </div>
 
     <!-- No Exams Found Message -->

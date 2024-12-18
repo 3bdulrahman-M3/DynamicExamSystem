@@ -8,8 +8,8 @@ import {
 import { AuthenticationService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-import { jwtDecode } from 'jwt-decode'; // Import jwt-decode
+import { HttpClientModule } from '@angular/common/http';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +21,7 @@ import { jwtDecode } from 'jwt-decode'; // Import jwt-decode
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
+  loading: boolean = false; // Add a loading flag
   private authService = inject(AuthenticationService);
   private router = inject(Router);
 
@@ -33,16 +34,18 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      this.loading = true; // Show spinner
       const { email, password } = this.loginForm.value;
 
       this.authService.login(email, password).subscribe({
         next: (response: any) => {
+          this.loading = false; // Hide spinner after response
           if (response && response.token) {
             const decodedToken: any = jwtDecode(response.token);
 
             // Save token and role
             this.authService.saveAuthData(response.token, decodedToken.role);
-            console.log(decodedToken);
+
             // Role-based navigation
             if (decodedToken.role === 'Admin') {
               this.router.navigate(['admin/dashboard']);
@@ -56,6 +59,7 @@ export class LoginComponent {
           }
         },
         error: (err) => {
+          this.loading = false; // Hide spinner on error
           this.errorMessage = 'Login failed. Please try again later.';
         },
       });

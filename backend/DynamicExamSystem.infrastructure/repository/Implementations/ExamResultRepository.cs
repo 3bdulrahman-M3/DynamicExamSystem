@@ -24,7 +24,7 @@ public class ExamResultRepository : IExamResultRepository
             ExamId = sh.ExamId,
             Title = sh.Exam.Title,
             TotalQuestions = sh.Exam.Questions.Count,
-            CorrectAnswers = sh.Score, // Assuming Score is the number of correct answers
+            CorrectAnswers = sh.Score, 
             Score = sh.FinalScore
         }).ToList();
 

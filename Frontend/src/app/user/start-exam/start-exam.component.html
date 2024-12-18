@@ -1,5 +1,23 @@
-<div class="container">
-    <h2 class="text-2xl font-semibold mb-4">{{examTitle}}</h2>
+<div class="container mx-auto p-6">
+    <!-- Title and Timer Section -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold">{{ examTitle }}</h2>
+
+        <!-- Timer Display -->
+        <div class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4v4m7-7h-4m4 0h-4m0 0H5m7 0h5m0 0H5m14 0h-4m0 0H5m2-2h3m3-2h3m3-2h3m0 4h-3m0 0H8m0 0h4" />
+            </svg>
+            <span class="text-xl font-semibold">{{ timer }}</span>
+        </div>
+    </div>
+
+    <!-- Question Count -->
+    <div class="text-lg mb-4">
+        <span class="font-semibold">Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</span>
+    </div>
 
     <!-- Loading Indicator -->
     <div *ngIf="isLoading" class="text-blue-500 text-center mb-4">
@@ -16,10 +34,10 @@
         {{ successMessage }}
     </div>
 
-    <!-- Exam Questions -->
-    <form *ngIf="questions.length > 0"  class="space-y-6">
-        <div *ngFor="let question of questions" class="bg-gray-50 p-4 rounded-lg shadow-sm">
-            <p class="text-lg font-medium mb-3">{{ question.text }}</p>
+    <!-- Exam Questions Form -->
+    <form *ngIf="questions.length > 0" class="space-y-6 m-auto">
+        <div *ngFor="let question of questions; let i = index" class="bg-gray-50 p-4 rounded-lg shadow-sm w-1/2 m-auto">
+            <p class="text-lg font-medium mb-3 text-center">{{ question.text }}</p>
 
             <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
                 <input type="radio" [id]="'answer-' + question.id + '-' + answer.id" [name]="'question-' + question.id"
@@ -34,7 +52,7 @@
 
         <!-- Submit Button -->
         <button (click)="submitExam()"
-            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500  m-auto">
             Submit Exam
         </button>
     </form>

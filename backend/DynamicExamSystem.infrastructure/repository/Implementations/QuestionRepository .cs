@@ -16,7 +16,7 @@ public class QuestionRepository : IQuestionRepository
     public async Task<Question> GetByIdAsync(int id)
     {
         return await _context.Questions
-            .Include(q => q.Answers) // Optional: Include related answers
+            .Include(q => q.Answers) 
             .FirstOrDefaultAsync(q => q.Id == id);
     }
 }

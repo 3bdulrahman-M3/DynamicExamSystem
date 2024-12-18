@@ -16,13 +16,11 @@ public class ExamRepository : IExamRepository
         _context = context;
     }
 
-    //
     public async Task<Exam> AddAsync(Exam exam)
     {
         await _context.Exams.AddAsync(exam);
         return exam;
     }
-    //
     public async Task<Exam> GetExamByIdAsync(int examId)
     {
         return await _context.Exams
@@ -30,7 +28,6 @@ public class ExamRepository : IExamRepository
             .FirstOrDefaultAsync(exam => exam.Id == examId);
     }
 
-    //
     public async Task<IEnumerable<Exam>> GetExamsBySubjectIdAsync(int subjectId)
     {
         return await _context.Exams
@@ -38,7 +35,7 @@ public class ExamRepository : IExamRepository
             .Include(e => e.Subject)
             .ToListAsync();
     }
-    //
+
     public async Task AddQuestionAsync(Question question)
     {
         _context.Questions.Add(question);
@@ -66,7 +63,6 @@ public class ExamRepository : IExamRepository
         await _context.SaveChangesAsync();
     }
 
-    // Get a question by its ID
     public async Task<Question> GetQuestionByIdAsync(int questionId)
     {
         return await _context.Questions
@@ -82,7 +78,6 @@ public class ExamRepository : IExamRepository
     {
         _context.Exams.Remove(exam);
     }
-    //
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
@@ -144,5 +139,15 @@ public class ExamRepository : IExamRepository
     public async Task DeleteExamAsync(Exam exam)
     {
         _context.Exams.Remove(exam);
+    }
+
+    public Task DeleteQuestionAsync(Question question)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Delete(Question question)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -1,25 +1,52 @@
+<!-- Loading State -->
 <div *ngIf="isLoading" class="text-center mt-10">
-    <p>Loading...</p>
+    <i class="fas fa-spinner fa-spin text-4xl text-blue-500"></i>
+    <p class="text-lg font-semibold mt-2">Loading...</p>
 </div>
 
+<!-- Error State -->
 <div *ngIf="errorMessage" class="text-center mt-10 text-red-500">
-    <p>{{ errorMessage }}</p>
+    <i class="fas fa-exclamation-circle text-4xl mb-2"></i>
+    <p class="text-lg font-semibold">{{ errorMessage }}</p>
 </div>
 
-<div *ngIf="!isLoading && !errorMessage" class="profile-container">
-    <div class="p-5 bg-white shadow-lg rounded-md">
-        <h2 class="text-xl font-bold mb-4">User Profile</h2>
-        <div class="flex flex-col mb-2">
-            <span class="font-semibold">User Name:</span>
-            <span>{{ userProfile.userName }}</span>
+<!-- User Profile Container -->
+<div *ngIf="!isLoading && !errorMessage" class="profile-container flex justify-center items-center mt-10">
+    <div class="w-full max-w-md p-6 bg-white shadow-lg rounded-md border border-gray-200">
+        <!-- Profile Header -->
+        <div class="flex items-center justify-center mb-6">
+            <i class="fas fa-user-circle text-6xl text-blue-500"></i>
         </div>
-        <div class="flex flex-col mb-2">
-            <span class="font-semibold">Email:</span>
-            <span>{{ userProfile.email }}</span>
-        </div>
-        <div *ngIf="role" class="flex flex-col mb-2">
-            <span class="font-semibold">Role:</span>
-            <span>{{ role }}</span>
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">User Profile</h2>
+
+        <!-- User Details -->
+        <div class="text-lg divide-y divide-gray-300">
+            <!-- User Name -->
+            <div class="flex items-center py-4">
+                <i class="fas fa-user text-blue-500 text-xl mr-4"></i>
+                <div class="flex flex-nowrap text-right">
+                    <span class="font-semibold text-gray-700 mr-6">User Name :</span>
+                    <span class="text-gray-800 font-medium">{{ userProfile.userName }}</span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-center py-4">
+                <i class="fas fa-envelope text-green-500 text-xl mr-4"></i>
+                <div class="flex flex-nowrap text-left">
+                    <span class="font-semibold text-gray-700 mr-6">Email :</span>
+                    <span class="text-gray-800 font-medium">{{ userProfile.email }}</span>
+                </div>
+            </div>
+
+            <!-- Role -->
+            <div *ngIf="role" class="flex items-center py-4">
+                <i class="fas fa-user-shield text-yellow-500 text-xl mr-4"></i>
+                <div class="flex flex-nowrap text-center">
+                    <div class="font-semibold text-gray-700 mr-6">Role :</div>
+                    <span class="text-gray-800 font-medium">{{ role }}</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
