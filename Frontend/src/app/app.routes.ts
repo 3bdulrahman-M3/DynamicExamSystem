@@ -17,6 +17,7 @@ import { ReportsComponent } from './user/reports/reports.component';
 import { ExamReportsComponent } from './admin/exam-reports/exam-reports.component';
 import { StudentComponent } from './admin/student/student.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NotificationComponent } from './notifications/notifications.component';
 export const routes: Routes = [
   {
     path: '',
@@ -40,6 +41,7 @@ export const routes: Routes = [
       { path: 'subject', component: SubjectComponent },
       { path: 'exam', component: ExamComponent },
       { path: 'exam/manage-exam/:id', component: ManageExamComponent },
+      { path: 'notifications', component: NotificationComponent },
       { path: 'reports', component: ExamReportsComponent },
       { path: 'students', component: StudentComponent },
       { path: 'profile', component: ProfileComponent },

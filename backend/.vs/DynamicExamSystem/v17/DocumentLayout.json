@@ -7,128 +7,20 @@
       "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\implementations\\examresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\implementations\\examresultrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\studentexamhestorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\studentexamhestorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\isubjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\isubjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\iquestionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\iquestionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\ianswerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\ianswerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\implementations\\subjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\implementations\\subjectrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\implementations\\questionrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\implementations\\questionrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\notification\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\notification\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\implementations\\examrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\implementations\\examrepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\implementations\\answerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\implementations\\answerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\data\\entityconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\data\\entityconfigurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\subject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\studenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\studenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\exam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\exam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.domain\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}|DynamicExamSystem.Domain\\DynamicExamSystem.Domain.csproj|solutionrelative:dynamicexamsystem.domain\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\subjectcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\authentcationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\authentcationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\userloginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\userloginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\subjectdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\subjectdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\registerviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\registerviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\questionsdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\questionsdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\loginviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\loginviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\examdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\examdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\application\\dtos\\answerdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}|Application\\Application.csproj|solutionrelative:application\\dtos\\answerdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\repository\\interfaces\\iexamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -146,28 +38,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IExamResultRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamResultRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamResultRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamResultRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamResultRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Program.cs",
+              "RelativeDocumentMoniker": "DynamicExamSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Program.cs",
+              "RelativeToolTip": "DynamicExamSystem\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-24T13:47:31.726Z",
+              "WhenOpened": "2024-12-24T14:51:05.554Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "DynamicExamSystem\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAADAAAACANzMzM7MTwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "NotificationHub.cs",
+              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
+              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
+              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
+              "RelativeToolTip": "DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:27:19.095Z"
+              "WhenOpened": "2024-12-24T14:50:23.449Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -177,361 +70,35 @@
               "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\ExamController.cs",
               "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\ExamController.cs",
               "RelativeToolTip": "DynamicExamSystem\\Controllers\\ExamController.cs",
-              "ViewState": "AgIAAOkAAAAAAAAAAAAAwPUAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAIwKIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-18T14:27:39.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExamResultRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamResultRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamResultRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamResultRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamResultRepository.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAUwEUAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:30:39.658Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IExamRepository.cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
               "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
               "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
               "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
-              "ViewState": "AgIAAAwAAAAAdmZmZmb2vxEAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wBUAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:31:02.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-18T14:31:02.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StudentExamHestoryDto.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\StudentExamHestoryDto.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\StudentExamHestoryDto.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\StudentExamHestoryDto.cs",
-              "RelativeToolTip": "Application\\Dtos\\StudentExamHestoryDto.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAIA6wBgAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:06.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IAnswerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IAnswerRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IAnswerRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IAnswerRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IAnswerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:31:00.326Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ISubjectRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\ISubjectRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\ISubjectRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\ISubjectRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\ISubjectRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:31:10.781Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IQuestionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IQuestionRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IQuestionRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IQuestionRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IQuestionRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:31:07.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "SubjectRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\SubjectRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\SubjectRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\SubjectRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Implementations\\SubjectRepository.cs",
-              "ViewState": "AgIAAC0AAACANDMzMzMlwEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:30:53.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "QuestionRepository .cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\QuestionRepository .cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\QuestionRepository .cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\QuestionRepository .cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Implementations\\QuestionRepository .cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:30:45.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 2,
               "Title": "ExamRepository .cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
               "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
               "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
               "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
-              "ViewState": "AgIAAGQAAACAy8zMzCw4wFAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHoAAAAAAAAAAAAmwIUAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:29:53.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AnswerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\AnswerRepository.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\AnswerRepository.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\AnswerRepository.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\repository\\Implementations\\AnswerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:29:51.649Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EntityConfigurations.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Data\\EntityConfigurations.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\Data\\EntityConfigurations.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Data\\EntityConfigurations.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\Data\\EntityConfigurations.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:29:29.513Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "DynamicExamSystem.infrastructure\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAABIAAACADgAAAAAMwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:29:08.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Subject.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Subject.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\Subject.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Subject.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\Subject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:57.204Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Question.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\Question.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Question.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\Question.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:55.816Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "StudentHistory.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\StudentHistory.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\StudentHistory.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\StudentHistory.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\StudentHistory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:54.627Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Exam.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Exam.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\Exam.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Exam.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\Exam.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:53.304Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:52.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Answer.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Answer.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem.Domain\\Models\\Answer.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.Domain\\Models\\Answer.cs",
-              "RelativeToolTip": "DynamicExamSystem.Domain\\Models\\Answer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:51.011Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "SubjectController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\SubjectController.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\SubjectController.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\SubjectController.cs",
-              "RelativeToolTip": "DynamicExamSystem\\Controllers\\SubjectController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAfwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:39.207Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "QuestionsController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\QuestionsController.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\QuestionsController.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\QuestionsController.cs",
-              "RelativeToolTip": "DynamicExamSystem\\Controllers\\QuestionsController.cs",
-              "ViewState": "AgIAAEEAAAAAzczMzMwmwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:28:30.459Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AuthentcationController.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AuthentcationController.cs",
-              "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\AuthentcationController.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AuthentcationController.cs",
-              "RelativeToolTip": "DynamicExamSystem\\Controllers\\AuthentcationController.cs",
-              "ViewState": "AgIAAFwAAAAAMzMzMzMqwDsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:27:23.234Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Helpers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Application\\Helpers\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Helpers\\MappingProfile.cs",
-              "RelativeToolTip": "Application\\Helpers\\MappingProfile.cs",
-              "ViewState": "AgIAAAUAAADgNTMzMzMLwB0AAABJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:34.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "UserLoginRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\UserLoginRequestDto.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\UserLoginRequestDto.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\UserLoginRequestDto.cs",
-              "RelativeToolTip": "Application\\Dtos\\UserLoginRequestDto.cs",
-              "ViewState": "AgIAABUAAAAwAAAAAAA8wAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:26.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "SubjectDtos.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\SubjectDtos.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\SubjectDtos.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\SubjectDtos.cs",
-              "RelativeToolTip": "Application\\Dtos\\SubjectDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:09.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "RegisterViewDto.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\RegisterViewDto.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\RegisterViewDto.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\RegisterViewDto.cs",
-              "RelativeToolTip": "Application\\Dtos\\RegisterViewDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:04.82Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "QuestionsDtos.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\QuestionsDtos.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\QuestionsDtos.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\QuestionsDtos.cs",
-              "RelativeToolTip": "Application\\Dtos\\QuestionsDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:03.067Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "LoginViewDto.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\LoginViewDto.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\LoginViewDto.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\LoginViewDto.cs",
-              "RelativeToolTip": "Application\\Dtos\\LoginViewDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:26:01.135Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ExamDtos.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\ExamDtos.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\ExamDtos.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\ExamDtos.cs",
-              "RelativeToolTip": "Application\\Dtos\\ExamDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:25:58.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "AnswerDtos.cs",
-              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\AnswerDtos.cs",
-              "RelativeDocumentMoniker": "Application\\Dtos\\AnswerDtos.cs",
-              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\Application\\Dtos\\AnswerDtos.cs",
-              "RelativeToolTip": "Application\\Dtos\\AnswerDtos.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-18T14:25:49.548Z"
+              "WhenOpened": "2024-12-18T14:29:53.347Z",
+              "EditorCaption": ""
             }
           ]
         }

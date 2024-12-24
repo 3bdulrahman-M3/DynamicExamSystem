@@ -1,5 +1,6 @@
 using Application.Helpers;
 using DynamicExamSystem.infrastructure.Data;
+using DynamicExamSystem.infrastructure.Notification;
 using DynamicExamSystem.infrastructure.repository.Implementations;
 using DynamicExamSystem.infrastructure.repository.Interfaces;
 using Infrastructure.Seeds;
@@ -71,6 +72,7 @@ builder.Services.AddScoped<IExamRepository, ExamRepository>();
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
 builder.Services.AddScoped<IAnswerRepository, AnswerRepository>();
 builder.Services.AddScoped<IExamResultRepository, ExamResultRepository>();
+builder.Services.AddSignalR();
 
 //builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 builder.Services.AddAuthentication(options =>
@@ -103,10 +105,9 @@ builder.Services.AddIdentityCore<ApplicationUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<AppDbContext>();
 
 
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseCors("DevCors");
@@ -131,5 +132,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<NotificationHub>("/notification");
 
 app.Run();

@@ -1,16 +1,12 @@
 ﻿using Application.Dtos;
 using AutoMapper;
-using Azure.Core;
-using DynamicExamSystem.Domain.Models;
+using DynamicExamSystem.infrastructure.Notification;
 using DynamicExamSystem.infrastructure.repository.Interfaces;
 using DynamicExamSystem.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
 namespace DynamicExamSystem.Controllers
 {
@@ -22,12 +18,14 @@ namespace DynamicExamSystem.Controllers
         private readonly IExamRepository _examRepository;
         private readonly IExamResultRepository _examResultRepository;
         private readonly IMapper _mapper;
+        private readonly IHubContext<NotificationHub> _hubContext;
 
-        public ExamController(IExamRepository examRepository, IMapper mapper, IExamResultRepository examResultRepository)
+        public ExamController(IExamRepository examRepository, IMapper mapper, IExamResultRepository examResultRepository, IHubContext<NotificationHub> hubContext)
         {
             _examRepository = examRepository;
             _mapper = mapper;
             _examResultRepository = examResultRepository;
+            _hubContext = hubContext;
         }
 
         [Authorize(Roles = "Admin")]
@@ -141,7 +139,7 @@ namespace DynamicExamSystem.Controllers
             return Ok("Exam name updated successfully.");
         }
 
-
+        // signalr 
 
         [Authorize(Roles = "Student")]
         [HttpPost("exam/{examId}/submit")]
@@ -151,14 +149,25 @@ namespace DynamicExamSystem.Controllers
             {
                 Console.WriteLine(claim);
             }
+
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized("User not logged in.");
 
             var result = await _examRepository.EvaluateExamAsync(examId, userId, answers);
+
+            await _hubContext.Clients.All.SendAsync("ExamSubmittedByStudent", new
+            {
+                Message = "A student has submitted their exam.",
+                StudentId = userId,
+                ExamId = examId,
+                SubmissionTime = DateTime.UtcNow
+            });
+
             return Ok(result);
         }
+
 
 
         [Authorize(Roles = "Student")]

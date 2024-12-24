@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicExamSystem.infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamicExamSystem.Domain", "DynamicExamSystem.Domain\DynamicExamSystem.Domain.csproj", "{01D49B49-57CE-4A5B-A5F8-FB5E4E37C377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{F5047EA5-5A58-4A67-A2F4-EEE6D8C5C979}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

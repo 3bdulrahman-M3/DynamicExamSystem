@@ -1,8 +1,10 @@
 ﻿using Application.Dtos;
 using DynamicExamSystem.Domain.Models;
 using DynamicExamSystem.infrastructure.Data;
+using DynamicExamSystem.infrastructure.Notification;
 using DynamicExamSystem.infrastructure.repository.Interfaces;
 using DynamicExamSystem.Models;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Linq.Expressions;
@@ -10,10 +12,12 @@ using System.Linq.Expressions;
 public class ExamRepository : IExamRepository
 {
     private readonly AppDbContext _context;
+    private readonly IHubContext<NotificationHub> _hubContext;
 
-    public ExamRepository(AppDbContext context)
+    public ExamRepository(AppDbContext context, IHubContext<NotificationHub> hubContext)
     {
         _context = context;
+        _hubContext = hubContext;
     }
 
     public async Task<Exam> AddAsync(Exam exam)
@@ -127,6 +131,13 @@ public class ExamRepository : IExamRepository
         await _context.StudentHistories.AddAsync(history);
 
         await _context.SaveChangesAsync();
+        //await _hubContext.Clients.Group("AdminGroup").SendAsync("ExamSubmittedByStudent", new
+        //{
+        //    Message = "A student has submitted their exam.",
+        //    StudentId = userId,
+        //    ExamId = examId,
+        //    SubmissionTime = DateTime.UtcNow
+        //});
 
         return new ExamResultDto
         {
