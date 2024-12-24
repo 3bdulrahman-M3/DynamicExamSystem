@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './exam-reports.component.html',
   styleUrls: ['./exam-reports.component.css'],
   standalone: true,
-  imports: [CommonModule,FormsModule], // Ensures ngClass and date pipe work
+  imports: [CommonModule, FormsModule], // Ensures ngClass and date pipe work
 })
 export class ExamReportsComponent implements OnInit {
   examHistory: any[] = [];
@@ -23,6 +23,7 @@ export class ExamReportsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExamHistory(); // Fetch exam history when the component is initialized
+
   }
 
   getExamHistory(): void {
@@ -38,14 +39,14 @@ export class ExamReportsComponent implements OnInit {
         next: (data) => {
           this.examHistory = data?.data;
           this.totalCount = data?.totalCount;
-          this.totalPages = Math.ceil(this.totalCount / this.pageSize);
-          this.isLoading = false; // Hide loading indicator
+          this.totalPages = data?.totalPages
+          this.isLoading = false;
         },
         error: (err) => {
           console.error('Failed to fetch exam results', err);
           this.errorMessage =
             'Could not fetch exam results. Please try again later.';
-          this.isLoading = false; // Hide loading indicator
+          this.isLoading = false;
         },
       });
   }
@@ -58,14 +59,15 @@ export class ExamReportsComponent implements OnInit {
   }
 
   nextPage(): void {
-    if (this.pageNumber < this.totalPages) {
+    if (this.examHistory != null) {
       this.pageNumber++;
       this.getExamHistory();
     }
+
   }
 
   onPageSizeChange(): void {
-    this.pageNumber = 1; // Reset to the first page whenever the page size changes
-    this.getExamHistory(); // Fetch data with the new page size
+    this.pageNumber = 1;
+    this.getExamHistory();
   }
 }

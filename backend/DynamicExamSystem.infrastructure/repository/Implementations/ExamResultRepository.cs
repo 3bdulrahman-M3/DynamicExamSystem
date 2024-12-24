@@ -31,8 +31,10 @@ public class ExamResultRepository : IExamResultRepository
         return results;
     }
 
-    public async Task<IEnumerable<StudentHistoryDTO>> GetAllStudentHistoryAsync()
+    public async Task<(IEnumerable<StudentHistoryDTO> Histories, int TotalCount)> GetAllStudentHistoryAsync(int pageNumber, int pageSize)
     {
+        var totalCount = await _context.StudentHistories.CountAsync();
+
         var histories = await _context.StudentHistories
             .Include(sh => sh.User)
             .Include(sh => sh.Exam)
@@ -46,25 +48,37 @@ public class ExamResultRepository : IExamResultRepository
                 Score = sh.Score,
                 FinalScore = sh.FinalScore
             })
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
 
-        return histories;
+        return (histories, totalCount);
     }
-    public async Task<IEnumerable<StudentHistoryDTO>> GetStudentHistoryByIdAsync(string userId)
+
+    public async Task<(IEnumerable<StudentHistoryDTO> Histories, int TotalCount)> GetStudentHistoryByIdAsync(string userId, int pageNumber, int pageSize)
     {
-        return await _context.StudentHistories
+        var totalCount = await _context.StudentHistories
+            .Where(history => history.UserId == userId)
+            .CountAsync();
+
+        var histories = await _context.StudentHistories
             .Where(history => history.UserId == userId)
             .Select(history => new StudentHistoryDTO
             {
-                UserName = history.User.UserName, 
-                ExamTitle = history.Exam.Title, 
+                UserName = history.User.UserName,
+                ExamTitle = history.Exam.Title,
                 StartTime = history.StartTime,
                 EndTime = history.EndTime,
                 TimeTaken = history.EndTime - history.StartTime,
                 Score = history.Score,
                 FinalScore = history.FinalScore
             })
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
             .ToListAsync();
+
+        return (histories, totalCount);
     }
+
 
 }

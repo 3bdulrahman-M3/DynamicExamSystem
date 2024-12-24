@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './reports.component.html',
   styleUrls: ['./reports.component.css'],
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
 })
 export class ReportsComponent implements OnInit {
   examResults: any[] = [];
   errorMessage: string = '';
   role: string | null = null;
   pageNumber: number = 1;
-  pageSize: number = 10; // Default page size
+  pageSize: number = 10;
   totalCount: number = 0;
   totalPages: number = 0;
   userId = '';
@@ -42,12 +42,13 @@ export class ReportsComponent implements OnInit {
       })
       .subscribe({
         next: (data) => {
-          this.examResults = data?.data;
-          this.totalCount = data?.totalCount;
+          this.examResults = data?.data || [];
+          this.totalCount = data?.totalCount || 0;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
+          this.errorMessage = ''; // Clear error message if successful
         },
         error: (err) => {
-          console.error('Failed to fetch exam results', err);
+          console.error('Failed to fetch exam results:', err);
           this.errorMessage =
             'Could not fetch exam results. Please try again later.';
         },
@@ -68,8 +69,12 @@ export class ReportsComponent implements OnInit {
     }
   }
 
+  resetPagination(): void {
+    this.pageNumber = 1;
+    this.getExamResults();
+  }
+
   onPageSizeChange(): void {
-    this.pageNumber = 1; // Reset to the first page whenever the page size changes
-    this.getExamResults(); // Fetch data with the new page size
+    this.resetPagination();
   }
 }

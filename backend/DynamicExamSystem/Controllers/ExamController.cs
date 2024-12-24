@@ -195,57 +195,52 @@ namespace DynamicExamSystem.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpGet("history")]
-        public async Task<ActionResult<IEnumerable<StudentHistoryDTO>>> GetAllUserHistory(int pageNumber = 1, int pageSize = 6)
+        public async Task<ActionResult> GetAllUserHistory(int pageNumber = 1, int pageSize = 6)
         {
-            var histories = await _examResultRepository.GetAllStudentHistoryAsync();
+            var (histories, totalCount) = await _examResultRepository.GetAllStudentHistoryAsync(pageNumber, pageSize);
 
             if (histories == null || !histories.Any())
             {
                 return NotFound("No student history found.");
             }
-            var totalCount = histories.Count();
 
-            var pagedHistories = histories
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-            var studentHistoryDtos = _mapper.Map<IEnumerable<StudentHistoryDTO>>(pagedHistories);
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
+
             return Ok(new
             {
-                data = studentHistoryDtos,
+                data = histories,
                 totalCount,
                 pageNumber,
-                pageSize
+                pageSize,
+                totalPages
             });
         }
+
 
 
         [Authorize(Roles = "Student")]
         [HttpGet("history/{studentId}")]
         public async Task<ActionResult> GetUserHistory(string studentId, int pageNumber = 1, int pageSize = 6)
         {
-            var histories = await _examResultRepository.GetStudentHistoryByIdAsync(studentId);
+            var (histories, totalCount) = await _examResultRepository.GetStudentHistoryByIdAsync(studentId, pageNumber, pageSize);
 
             if (histories == null || !histories.Any())
             {
                 return NotFound("No student history found.");
             }
-            var totalCount = histories.Count();
 
-            var pagedHistories = histories
-                .Skip((pageNumber - 1) * pageSize)  
-                .Take(pageSize)                     
-                .ToList();                          
+            var totalPages = (int)Math.Ceiling((double)totalCount / pageSize);
 
-            var studentHistoryDtos = _mapper.Map<IEnumerable<StudentHistoryDTO>>(pagedHistories);
             return Ok(new
             {
-                data = studentHistoryDtos, 
-                totalCount,                 
-                pageNumber,                 
-                pageSize                   
+                data = histories,
+                totalCount,
+                pageNumber,
+                pageSize,
+                totalPages
             });
         }
+
 
         [Authorize(Roles = "Admin")]
         [HttpDelete("DeleteQuestion/{questionId}")]
