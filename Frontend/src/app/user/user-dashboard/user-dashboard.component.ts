@@ -34,7 +34,7 @@ export class UserDashboardComponent implements OnInit {
   // Retrieve the user ID from localStorage
   getUserId(): void {
     this.nameId = this.authService.getUserId(); // Get the user ID (nameid) from localStorage
-    console.log('User ID:', this.nameId); // Example: "123"
+    // console.log('User ID:', this.nameId); // Example: "123"
   }
 
   // Fetch user details using /api/Account/{id}
@@ -68,7 +68,7 @@ export class UserDashboardComponent implements OnInit {
       .get<any[]>('http://localhost:5063/api/Exam/exam/results')
       .subscribe({
         next: (data) => {
-          console.log('Fetched Exam Results:', data); // Debug: check the structure of the data
+          // console.log('Fetched Exam Results:', data); // Debug: check the structure of the data
 
           if (Array.isArray(data)) {
             this.totalExams = data.length; // Calculate the total number of exams

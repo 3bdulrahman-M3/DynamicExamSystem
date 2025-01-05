@@ -19,7 +19,8 @@ export class ReportsComponent implements OnInit {
   pageSize: number = 10;
   totalCount: number = 0;
   totalPages: number = 0;
-  userId = '';
+  userId: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -31,7 +32,12 @@ export class ReportsComponent implements OnInit {
     this.getExamResults();
   }
 
+  /**
+   * Fetch exam results with pagination.
+   */
   getExamResults(): void {
+    this.isLoading = true; // Start loading spinner
+
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber.toString())
       .set('pageSize', this.pageSize.toString());
@@ -45,16 +51,21 @@ export class ReportsComponent implements OnInit {
           this.examResults = data?.data || [];
           this.totalCount = data?.totalCount || 0;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
-          this.errorMessage = ''; // Clear error message if successful
+          this.errorMessage = ''; // Clear any previous errors
+          this.isLoading = false; // Stop loading spinner
         },
         error: (err) => {
           console.error('Failed to fetch exam results:', err);
           this.errorMessage =
             'Could not fetch exam results. Please try again later.';
+          this.isLoading = false; // Stop loading spinner even on error
         },
       });
   }
 
+  /**
+   * Navigate to the previous page.
+   */
   previousPage(): void {
     if (this.pageNumber > 1) {
       this.pageNumber--;
@@ -62,6 +73,9 @@ export class ReportsComponent implements OnInit {
     }
   }
 
+  /**
+   * Navigate to the next page.
+   */
   nextPage(): void {
     if (this.pageNumber < this.totalPages) {
       this.pageNumber++;
@@ -69,11 +83,17 @@ export class ReportsComponent implements OnInit {
     }
   }
 
+  /**
+   * Reset pagination and reload data.
+   */
   resetPagination(): void {
     this.pageNumber = 1;
     this.getExamResults();
   }
 
+  /**
+   * Handle changes to the page size and reset pagination.
+   */
   onPageSizeChange(): void {
     this.resetPagination();
   }

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { SidebarAdminComponent } from './sidebar-admin/sidebar.component';
 import { RouterOutlet } from '@angular/router';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-admin',
-  imports: [SidebarAdminComponent, RouterOutlet],
+  imports: [RouterOutlet, SidebarComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })

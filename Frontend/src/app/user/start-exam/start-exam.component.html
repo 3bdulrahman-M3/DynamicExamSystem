@@ -1,22 +1,19 @@
-<div class="container mx-auto p-6">
-    <!-- Title and Timer Section -->
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-semibold">{{ examTitle }}</h2>
-
-        <!-- Timer Display -->
-        <div class="flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M12 8v4m0 4v4m7-7h-4m4 0h-4m0 0H5m7 0h5m0 0H5m14 0h-4m0 0H5m2-2h3m3-2h3m3-2h3m0 4h-3m0 0H8m0 0h4" />
-            </svg>
-            <span class="text-xl font-semibold">{{ timer }}</span>
-        </div>
+<div class="container mx-auto p-6 max-w-3xl">
+    <!-- Fixed Timer -->
+    <div
+        class="fixed top-4 right-4 bg-white border border-gray-300 shadow-md rounded-lg p-4 flex items-center space-x-2 z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-600" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4m0 4v4m7-7h-4m4 0h-4m0 0H5m7 0h5m0 0H5m14 0h-4m0 0H5m2-2h3m3-2h3m3-2h3m0 4h-3m0 0H8m0 0h4" />
+        </svg>
+        <span class="text-lg font-semibold text-gray-800">{{ timer }}</span>
     </div>
 
-    <!-- Question Count -->
-    <div class="text-lg mb-4">
-        <span class="font-semibold">Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</span>
+    <!-- Title Section -->
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-semibold text-gray-800">{{ examTitle }}</h2>
+        <span class="font-medium text-gray-600">Total Questions: {{ questions.length }}</span>
     </div>
 
     <!-- Loading Indicator -->
@@ -35,25 +32,28 @@
     </div>
 
     <!-- Exam Questions Form -->
-    <form *ngIf="questions.length > 0" class="space-y-6 m-auto">
-        <div *ngFor="let question of questions; let i = index" class="bg-gray-50 p-4 rounded-lg shadow-sm w-1/2 m-auto">
-            <p class="text-lg font-medium mb-3 text-center">{{ question.text }}</p>
+    <form *ngIf="questions.length > 0" class="space-y-8">
+        <div *ngFor="let question of questions; let i = index"
+            class="bg-white border border-gray-300 p-6 rounded-lg shadow-md">
+            <p class="text-lg font-semibold text-gray-800 mb-4">{{ question.text }}</p>
 
-            <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
+            <div *ngFor="let answer of question.answers" class="flex items-center mb-2">
                 <input type="radio" [id]="'answer-' + question.id + '-' + answer.id" [name]="'question-' + question.id"
                     [value]="answer.id" [checked]="selectedAnswers[question.id] === answer.id"
                     (change)="selectAnswer(question.id, answer.id)"
-                    class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500" />
-                <label [for]="'answer-' + question.id + '-' + answer.id" class="text-gray-700">
+                    class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-2 focus:ring-blue-500" />
+                <label [for]="'answer-' + question.id + '-' + answer.id" class="ml-3 text-gray-700">
                     {{ answer.text }}
                 </label>
             </div>
         </div>
 
         <!-- Submit Button -->
-        <button (click)="submitExam()"
-            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500  m-auto">
-            Submit Exam
-        </button>
+        <div class="text-center">
+            <button type="button" (click)="submitExam()"
+                class="p-4 max-w-sm bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg">
+                Submit
+            </button>
+        </div>
     </form>
 </div>

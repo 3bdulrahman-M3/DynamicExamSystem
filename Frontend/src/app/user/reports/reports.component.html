@@ -1,79 +1,99 @@
-<!-- Pagination Controls -->
-<div class="flex justify-between items-center mt-4">
-    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" (click)="previousPage()"
-        [disabled]="pageNumber === 1">
-        Previous
-    </button>
-    <span class="text-gray-700">
-        Page {{ pageNumber }} of {{ totalPages }}
-    </span>
-    <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded-md" (click)="nextPage()"
-        [disabled]="pageNumber === totalPages">
-        Next
-    </button>
-</div>
+<div class="relative">
+    <!-- Loading Spinner Section -->
+    <div *ngIf="isLoading" class="fixed inset-0 flex items-center justify-center bg-gray-100 bg-opacity-75 z-50">
+        <div class="flex flex-col items-center">
+            <svg class="animate-spin h-10 w-10 text-blue-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 100 8v4a8 8 0 01-8-8z"></path>
+            </svg>
+            <span class="text-blue-500 text-lg font-medium">Loading, please wait...</span>
+        </div>
+    </div>
 
-<!-- Page Size Input -->
-<div class="mt-4">
-    <label for="pageSize" class="text-gray-700 mr-2">Page Size:</label>
-    <input id="pageSize" type="number" [(ngModel)]="pageSize" min="1" (change)="onPageSizeChange()"
-        class="px-4 py-2 rounded-md border-gray-300" [value]="pageSize" />
-</div>
+    <!-- Main Content -->
+    <div class="container mx-auto p-6" [hidden]="isLoading">
+        <!-- Pagination Controls -->
+        <div class="flex justify-between items-center mt-4">
+            <button
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400"
+                (click)="previousPage()" [disabled]="pageNumber === 1">
+                Previous
+            </button>
+            <span class="text-gray-700 font-medium">
+                Page {{ pageNumber }} of {{ totalPages }}
+            </span>
+            <button
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400"
+                (click)="nextPage()" [disabled]="pageNumber === totalPages">
+                Next
+            </button>
+        </div>
 
-<!-- Exam Results Section -->
-<div *ngIf="examResults.length > 0">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800">
-        <i class="fas fa-book-reader mr-2"></i>Your Exam History
-    </h2>
+        <!-- Page Size Input -->
+        <div class="mt-4">
+            <label for="pageSize" class="text-gray-700 mr-2">Page Size:</label>
+            <input id="pageSize" type="number" [(ngModel)]="pageSize" min="1" (change)="onPageSizeChange()"
+                class="px-4 py-2 rounded-md border-gray-300" [value]="pageSize" />
+        </div>
 
-    <table class="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
-        <thead class="bg-gray-200 text-gray-700">
-            <tr>
-                <th class="p-4 text-left text-sm font-medium border-b">Exam Title</th>
-                <th class="p-4 text-left text-sm font-medium border-b">Start Time</th>
-                <th class="p-4 text-left text-sm font-medium border-b">End Time</th>
-                <th class="p-4 text-left text-sm font-medium border-b">Time Taken</th>
-                <th class="p-4 text-left text-sm font-medium border-b">Score</th>
-                <th class="p-4 text-left text-sm font-medium border-b">Final Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let result of examResults" class="hover:bg-gray-50">
-                <td class="p-4 text-sm text-gray-700 border-b">
-                    <i class="fas fa-file-alt mr-2"></i>{{ result.examTitle }}
-                </td>
-                <td class="p-4 text-sm text-gray-700 border-b">
-                    <i class="fas fa-calendar-alt mr-2"></i>{{ result.startTime | date: 'medium' }}
-                </td>
-                <td class="p-4 text-sm text-gray-700 border-b">
-                    <i class="fas fa-calendar-check mr-2"></i>{{ result.endTime | date: 'medium' }}
-                </td>
-                <td class="p-4 text-sm text-gray-700 border-b">
-                    <i class="fas fa-clock mr-2"></i>{{ result.timeTaken }}
-                </td>
-                <td class="p-4 text-sm text-gray-700 border-b">
-                    <i class="fas fa-check-circle mr-2"></i>{{ result.score }}
-                </td>
-                <td class="p-4 text-sm text-gray-700 border-b" [ngClass]="{
-                    'text-red-500': result.finalScore < 50, 
-                    'text-green-500': result.finalScore >= 50
-                }">
-                    <i class="fas fa-trophy mr-2"></i>{{ result.finalScore }}%
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+        <!-- Exam Results Section -->
+        <div *ngIf="examResults.length > 0" class="mt-6">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">
+                <i class="fas fa-book-reader mr-2"></i>Your Exam History
+            </h2>
 
-<!-- No Results Section -->
-<div *ngIf="examResults.length === 0"
-    class="bg-gray-200 text-gray-700 p-4 rounded-md shadow-md flex items-center justify-between">
-    <i class="fas fa-frown mr-3"></i>
-    <p>No exam results found.</p>
-</div>
+            <table class="min-w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+                <thead class="bg-blue-100 text-gray-700">
+                    <tr>
+                        <th class="p-4 text-left text-sm font-medium border-b">Exam Title</th>
+                        <th class="p-4 text-left text-sm font-medium border-b">Start Time</th>
+                        <th class="p-4 text-left text-sm font-medium border-b">End Time</th>
+                        <th class="p-4 text-left text-sm font-medium border-b">Time Taken</th>
+                        <th class="p-4 text-left text-sm font-medium border-b">Score</th>
+                        <th class="p-4 text-left text-sm font-medium border-b">Final Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let result of examResults" class="hover:bg-gray-50">
+                        <td class="p-4 text-sm text-gray-700 border-b">
+                            <i class="fas fa-file-alt mr-2"></i>{{ result.examTitle }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-700 border-b">
+                            <i class="fas fa-calendar-alt mr-2"></i>{{ result.startTime | date: 'medium' }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-700 border-b">
+                            <i class="fas fa-calendar-check mr-2"></i>{{ result.endTime | date: 'medium' }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-700 border-b">
+                            <i class="fas fa-clock mr-2"></i>{{ result.timeTaken }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-700 border-b">
+                            <i class="fas fa-check-circle mr-2"></i>{{ result.score }}
+                        </td>
+                        <td class="p-4 text-sm text-gray-700 border-b" [ngClass]="{
+                            'text-red-500': result.finalScore < 50, 
+                            'text-green-500': result.finalScore >= 50
+                        }">
+                            <i class="fas fa-trophy mr-2"></i>{{ result.finalScore }}%
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-<!-- Error Message Section -->
-<div *ngIf="errorMessage" class="error-message bg-red-500 text-white p-4 rounded-md shadow-md flex items-center">
-    <i class="fas fa-exclamation-triangle mr-3"></i>
-    <p>{{ errorMessage }}</p>
+        <!-- No Results Section -->
+        <div *ngIf="examResults.length === 0"
+            class="bg-gray-200 text-gray-700 p-4 rounded-md shadow-md flex items-center justify-between mt-6">
+            <i class="fas fa-frown mr-3"></i>
+            <p>No exam results found.</p>
+        </div>
+
+        <!-- Error Message Section -->
+        <div *ngIf="errorMessage"
+            class="error-message bg-red-500 text-white p-4 rounded-md shadow-md flex items-center mt-6">
+            <i class="fas fa-exclamation-triangle mr-3"></i>
+            <p>{{ errorMessage }}</p>
+        </div>
+    </div>
 </div>

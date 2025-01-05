@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/auth.service'; // Update the path as needed
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { AuthenticationService } from '../services/auth.service'; // Update the path as needed
+import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
+  imports: [NgIf, CommonModule],
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
-  standalone: true,
-  imports: [CommonModule],
+  styleUrl: './sidebar.component.css',
 })
-export class SidebarAdminComponent implements OnInit {
+export class SidebarComponent {
   role: string | null = null;
 
   constructor(private authService: AuthenticationService) {}
   ngOnInit(): void {
     this.role = this.authService.getUserRole();
-    console.log(); // Fetch user role on initialization
+    console.log(this.role);
   }
 
   isLoggedIn(): boolean {
