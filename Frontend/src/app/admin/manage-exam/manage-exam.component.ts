@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Import CommonModule for directives like ngIf, ngFor
-import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-exam',
   standalone: true,
-  imports: [CommonModule, FormsModule], // Add FormsModule here
+  imports: [CommonModule, FormsModule],
   templateUrl: './manage-exam.component.html',
   styleUrls: ['./manage-exam.component.css'],
 })
@@ -18,26 +18,25 @@ export class ManageExamComponent implements OnInit {
   isLoading: boolean = false;
   newAnswers: { [key: number]: string } = {};
   correctAnswers: { [key: number]: boolean } = {};
-  newQuestionText: string = ''; // New question text model
-  updatedQuestionText: { [key: number]: string } = {}; // Store updated question text
+  newQuestionText: string = '';
+  updatedQuestionText: { [key: number]: string } = {};
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Retrieve the exam ID from the route parameter
     this.examId = +this.route.snapshot.paramMap.get('id')!;
     this.fetchQuestions();
   }
 
+  // Fetch questions
   fetchQuestions(): void {
     this.isLoading = true;
     this.errorMessage = '';
-
     this.http
       .get<any[]>(`http://localhost:5063/api/Exam/${this.examId}/questions`)
       .subscribe({
         next: (data) => {
-          this.questions = data; // Update the questions list
+          this.questions = data;
           this.isLoading = false;
         },
         error: (err) => {
@@ -48,6 +47,13 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
+  // Refresh component state
+  refreshComponent(): void {
+    this.fetchQuestions(); // Re-fetch questions
+    // Reset any temporary UI states here if needed
+  }
+
+  // Add a new question
   addQuestion(): void {
     if (!this.newQuestionText.trim()) {
       this.errorMessage = 'Please enter a question text.';
@@ -66,10 +72,9 @@ export class ManageExamComponent implements OnInit {
       )
       .subscribe({
         next: () => {
-          this.fetchQuestions(); // Refresh the questions list
-          this.newQuestionText = ''; // Clear input field
+          this.newQuestionText = ''; // Clear input
+          this.refreshComponent(); // Refresh component
           this.isLoading = false;
-          window.location.reload(); // Refresh the page
         },
         error: (err) => {
           console.error(err);
@@ -79,6 +84,7 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
+  // Update an existing question
   updateQuestion(questionId: number): void {
     const updatedText = this.updatedQuestionText[questionId];
 
@@ -94,15 +100,13 @@ export class ManageExamComponent implements OnInit {
       .put(
         `http://localhost:5063/api/Exam/${this.examId}/questions/${questionId}`,
         { text: updatedText },
-        { responseType: 'text' } // Explicitly set response type to text
+        { responseType: 'text' }
       )
       .subscribe({
-        next: (response: string) => {
-          alert(response || 'Question updated successfully!');
-          this.fetchQuestions(); // Refresh the questions list
-          this.updatedQuestionText[questionId] = ''; // Clear input field
+        next: () => {
+          this.updatedQuestionText[questionId] = ''; // Clear input
+          this.refreshComponent(); // Refresh component
           this.isLoading = false;
-          window.location.reload(); // Refresh the page
         },
         error: (err) => {
           console.error(err);
@@ -113,20 +117,19 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
+  // Delete a question
   deleteQuestion(questionId: number): void {
     this.isLoading = true;
     this.errorMessage = '';
 
     this.http
       .delete(`http://localhost:5063/api/Exam/DeleteQuestion/${questionId}`, {
-        responseType: 'text', // Explicitly set response type to text
+        responseType: 'text',
       })
       .subscribe({
-        next: (response: string) => {
-          // alert(response || 'Question deleted successfully!');
-          this.fetchQuestions(); // Refresh the questions list
+        next: () => {
+          this.refreshComponent(); // Refresh component
           this.isLoading = false;
-          window.location.reload(); // Refresh the page
         },
         error: (err) => {
           console.error(err);
@@ -137,6 +140,7 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
+  // Add an answer to a question
   addAnswer(questionId: number): void {
     const answerText = this.newAnswers[questionId];
     const isCorrect = this.correctAnswers[questionId];
@@ -146,10 +150,8 @@ export class ManageExamComponent implements OnInit {
       return;
     }
 
-    // Check if the question already has a correct answer
     const question = this.questions.find((q) => q.id === questionId);
     if (question && isCorrect) {
-      // If the question already has a correct answer, prevent adding another one
       const hasCorrectAnswer = question.answers.some(
         (answer: any) => answer.isCorrect
       );
@@ -160,10 +162,7 @@ export class ManageExamComponent implements OnInit {
       }
     }
 
-    const newAnswer = {
-      text: answerText,
-      isCorrect: isCorrect,
-    };
+    const newAnswer = { text: answerText, isCorrect: isCorrect };
 
     this.isLoading = true;
     this.errorMessage = '';
@@ -172,15 +171,12 @@ export class ManageExamComponent implements OnInit {
       .post<string>(
         `http://localhost:5063/api/Questions/${questionId}/Answer`,
         newAnswer,
-        {
-          responseType: 'text' as 'json', // Handle response as text
-        }
+        { responseType: 'text' as 'json' }
       )
       .subscribe({
         next: () => {
-          // alert('Answer added successfully!');
-          this.fetchQuestions(); // Refresh the questions list
-          this.newAnswers[questionId] = ''; // Clear input field
+          this.newAnswers[questionId] = ''; // Clear input
+          this.refreshComponent(); // Refresh component
           this.isLoading = false;
         },
         error: (err) => {
@@ -191,18 +187,18 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
+  // Delete an answer
   deleteAnswer(questionId: number, answerId: number): void {
     this.isLoading = true;
     this.errorMessage = '';
 
     this.http
       .delete(`http://localhost:5063/api/Questions/${answerId}`, {
-        responseType: 'text', // Handle response as text
+        responseType: 'text',
       })
       .subscribe({
-        next: (response: string) => {
-          // alert(response || 'Answer deleted successfully!');
-          this.fetchQuestions(); // Refresh the questions list
+        next: () => {
+          this.refreshComponent(); // Refresh component
           this.isLoading = false;
         },
         error: (err) => {

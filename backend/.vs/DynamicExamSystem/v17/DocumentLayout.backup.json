@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{50749FAA-B492-4B7C-BC2A-C1DC070796D4}|DynamicExamSystem.infrastructure\\DynamicExamSystem.infrastructure.csproj|solutionrelative:dynamicexamsystem.infrastructure\\notification\\notificationhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\authentcationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\authentcationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|c:\\users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\dynamicexamsystem\\backend\\dynamicexamsystem\\controllers\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DE1B02D1-8672-48A4-B51E-A0C23BCC1080}|DynamicExamSystem\\DynamicExamSystem.csproj|solutionrelative:dynamicexamsystem\\controllers\\examcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,7 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "AuthentcationController.cs",
+              "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AuthentcationController.cs",
+              "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\AuthentcationController.cs",
+              "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\AuthentcationController.cs",
+              "RelativeToolTip": "DynamicExamSystem\\Controllers\\AuthentcationController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T19:57:41.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Program.cs",
               "RelativeDocumentMoniker": "DynamicExamSystem\\Program.cs",
@@ -56,14 +73,14 @@
               "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
               "ToolTip": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
               "RelativeToolTip": "DynamicExamSystem.infrastructure\\Notification\\NotificationHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAADAZGZmZmYUwAoAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T14:50:23.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ExamController.cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem\\Controllers\\ExamController.cs",
               "RelativeDocumentMoniker": "DynamicExamSystem\\Controllers\\ExamController.cs",
@@ -75,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IExamRepository.cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
               "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Interfaces\\IExamRepository.cs",
@@ -87,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ExamRepository .cs",
               "DocumentMoniker": "C:\\Users\\\u0639\u0628\u062F \u0627\u0644\u0631\u062D\u0645\u0646\\source\\repos\\ab\\DynamicExamSystem\\backend\\DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
               "RelativeDocumentMoniker": "DynamicExamSystem.infrastructure\\repository\\Implementations\\ExamRepository .cs",
