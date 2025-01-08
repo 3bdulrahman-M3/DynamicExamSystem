@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationService } from '../services/auth.service'; // Update the path as needed
+import { AuthenticationService } from '../services/auth.service'; 
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -10,10 +10,10 @@ import { NgIf } from '@angular/common';
   imports: [NgIf],
 })
 export class ProfileComponent implements OnInit {
-  userId: string | null = null; // Store the user ID (nameid)
-  userProfile: any = {}; // Store user profile data
-  errorMessage: string = ''; // Store error message
-  isLoading: boolean = true; // For loading state
+  userId: string | null = null; 
+  userProfile: any = {}; 
+  errorMessage: string = ''; 
+  isLoading: boolean = true;
   role: string = '';
 
   constructor(
@@ -22,10 +22,10 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Retrieve the userId from localStorage (or you can get it from the token)
+
     this.userId = this.authService.getUserId();
     if (this.userId) {
-      this.fetchUserProfile(); // Fetch the user profile using the userId
+      this.fetchUserProfile(); 
     } else {
       this.errorMessage = 'User ID not found. Please log in again.';
       this.isLoading = false;
@@ -33,14 +33,13 @@ export class ProfileComponent implements OnInit {
     this.role = this.authService.getUserRole()!;
   }
 
-  // Fetch user profile using the /api/Account/{id} endpoint
   fetchUserProfile(): void {
     this.isLoading = true;
     this.http
       .get<any>(`http://localhost:5063/api/Account/${this.userId}`)
       .subscribe({
         next: (data) => {
-          this.userProfile = data; // Store the fetched user profile
+          this.userProfile = data; 
           this.isLoading = false;
         },
         error: (err) => {

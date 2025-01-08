@@ -1,10 +1,7 @@
 <div class="container mx-auto p-6 max-w-7xl">
-    <!-- Title -->
     <h1 class="text-3xl font-semibold text-blue-800 text-center mb-8">
         <i class="fas fa-history mr-2"></i> Exam History Reports
     </h1>
-
-    <!-- Pagination Controls -->
     <div class="flex justify-between items-center mt-4">
         <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300"
             (click)="previousPage()" [disabled]="pageNumber === 1">
@@ -18,29 +15,21 @@
             Next <i class="fas fa-chevron-right ml-2"></i>
         </button>
     </div>
-
-    <!-- Page Size Input -->
     <div class="flex items-center justify-between mt-6">
         <label for="pageSize" class="text-gray-700 font-medium">Page Size:</label>
         <input type="number" id="pageSize" [(ngModel)]="pageSize" min="1" max="100"
             class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
             (change)="onPageSizeChange()" />
     </div>
-
-    <!-- Loading Indicator -->
     <div *ngIf="isLoading" class="text-center text-blue-500 mt-6">
         <i class="fas fa-spinner fa-spin text-4xl"></i>
         <p class="mt-4 text-xl">Loading...</p>
     </div>
-
-    <!-- Error Message -->
     <div *ngIf="errorMessage"
         class="bg-red-500 text-white p-4 rounded-md shadow-lg mt-6 flex items-center justify-center">
         <i class="fas fa-exclamation-triangle mr-3"></i>
         <p class="text-lg">{{ errorMessage }}</p>
     </div>
-
-    <!-- Exam History Table -->
     <div *ngIf="!isLoading && !errorMessage && examHistory.length > 0" class="mt-6">
         <table class="min-w-full bg-white shadow-lg rounded-lg overflow-hidden">
             <thead class="bg-blue-600 text-white">

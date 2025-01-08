@@ -37,7 +37,7 @@ export class RegiterationComponent {
         (response) => {
           this.successMessage = 'Registration successful! Redirecting...';
           setTimeout(() => {
-            this.router.navigate(['/login']); // Redirect to login or another page
+            this.router.navigate(['/login']);
           }, 2000);
         },
         (error) => {

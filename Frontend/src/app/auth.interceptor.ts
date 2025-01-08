@@ -16,7 +16,7 @@ export function loggingInterceptor(
   const authToken = inject(AuthenticationService);
   const token = authToken.getToken();
 
-  // Clone the request and add the Authorization header if the token exists
+
   if (token) {
     const cloned = req.clone({
       setHeaders: {
@@ -27,6 +27,5 @@ export function loggingInterceptor(
     return next(cloned);
   }
 
-  // If no token, just pass the request without modification
   return next(req);
 }

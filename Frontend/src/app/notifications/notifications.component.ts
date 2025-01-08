@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificationService } from './signalr.service'; // Update path accordingly
+import { NotificationService } from './signalr.service'; 
 import { CommonModule, DatePipe, NgIf } from '@angular/common';
 
 @Component({
@@ -22,17 +22,16 @@ export class NotificationComponent implements OnInit {
   ngOnInit(): void {
     this.notificationService.notification$.subscribe((data: any) => {
       if (data) {
-        // Map received keys to match the interface
         this.notification = {
           Message: data.message,
-          ExamId: String(data.examId), // Ensure it's a string
+          ExamId: String(data.examId),
           StudentId: data.studentId,
-          SubmissionTime: new Date(data.submissionTime), // Convert to Date object
+          SubmissionTime: new Date(data.submissionTime), 
         };
         this.showNotification = true;
         setTimeout(() => {
           this.showNotification = false;
-        }, 5000); // Hide notification after 5 seconds
+        }, 5000);
       }
     });
   }

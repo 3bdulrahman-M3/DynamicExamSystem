@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/auth.service'; // Update the path as needed
+import { AuthenticationService } from '../services/auth.service'; 
 import { CommonModule, NgIf } from '@angular/common';
 
 @Component({
@@ -18,11 +18,11 @@ export class SidebarComponent {
   }
 
   isLoggedIn(): boolean {
-    return this.authService.isLoggedIn(); // Check login state
+    return this.authService.isLoggedIn(); 
   }
 
   logout(): void {
-    this.authService.logout(); // Clear auth data
-    window.location.href = '/login'; // Redirect to login page
+    this.authService.logout(); 
+    window.location.href = '/login'; 
   }
 }

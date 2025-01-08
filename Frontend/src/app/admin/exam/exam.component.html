@@ -1,5 +1,4 @@
 <div class="container mx-auto p-4 max-w-full">
-    <!-- Subject Selection -->
     <div class="mb-4 text-center">
         <h1 class="text-2xl font-semibold text-blue-800">Select a Subject</h1>
 
@@ -13,7 +12,6 @@
         </form>
     </div>
 
-    <!-- Add New Exam -->
     <div *ngIf="examForm.value.selectedSubject" class="mt-4">
         <h2 class="text-lg font-semibold text-center mb-3">Add New Exam</h2>
         <form (ngSubmit)="onAddExam()" class="flex space-x-4">
@@ -27,7 +25,6 @@
         </form>
     </div>
 
-    <!-- Exam List -->
     <div *ngIf="exams.length > 0" class="mt-4 space-y-4">
         <h2 class="text-lg font-semibold text-center mb-3">Available Exams</h2>
         <ul class="space-y-4">
@@ -35,7 +32,6 @@
                 class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 class="font-bold text-blue-600 mb-2">{{ exam.title }}</h3>
 
-                <!-- Update and Delete Controls -->
                 <div class="flex space-x-4">
                     <input type="text" [(ngModel)]="exam.newName"
                         class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
@@ -48,10 +44,9 @@
                         class="bg-red-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-red-600 focus:ring-2 focus:ring-red-500">
                         Delete
                     </button>
-                    <!-- Link to Navigate to Manage Exam Page -->
                     <a [routerLink]="['/admin/exam/manage-exam', exam.id]"
                         class="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 inline-flex items-center justify-center gap-2">
-                        <i class="fas fa-cogs"></i> <!-- Icon for manage exam -->
+                        <i class="fas fa-cogs"></i> 
                         Manage Exam
                     </a>
                 </div>

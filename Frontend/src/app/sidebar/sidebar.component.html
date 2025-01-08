@@ -4,7 +4,6 @@
         <h2 class="text-2xl font-bold mb-4">Exam System</h2>
 
         <ul class="space-y-6">
-            <!-- Common Links -->
             <li>
                 <a href="{{ role === 'Admin' ? 'admin/dashboard' : 'user/dashboard' }}"
                     class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full">
@@ -18,7 +17,6 @@
                 </a>
             </li>
 
-            <!-- Role-Specific Links -->
             <li *ngIf="role === 'Admin'">
                 <a href="admin/subject" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full">
                     <i class="fas fa-cogs mr-2"></i> Subjects
@@ -50,7 +48,6 @@
                 </a>
             </li>
 
-            <!-- Logout -->
             <li *ngIf="isLoggedIn()">
                 <a (click)="logout()" class="text-lg text-white hover:bg-blue-700 py-2 px-4 rounded-full">
                     <i class="fas fa-sign-out-alt mr-2"></i> Logout

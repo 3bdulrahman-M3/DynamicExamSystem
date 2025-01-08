@@ -32,11 +32,9 @@ export class ReportsComponent implements OnInit {
     this.getExamResults();
   }
 
-  /**
-   * Fetch exam results with pagination.
-   */
+
   getExamResults(): void {
-    this.isLoading = true; // Start loading spinner
+    this.isLoading = true; 
 
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber.toString())
@@ -51,21 +49,19 @@ export class ReportsComponent implements OnInit {
           this.examResults = data?.data || [];
           this.totalCount = data?.totalCount || 0;
           this.totalPages = Math.ceil(this.totalCount / this.pageSize);
-          this.errorMessage = ''; // Clear any previous errors
-          this.isLoading = false; // Stop loading spinner
+          this.errorMessage = ''; 
+          this.isLoading = false; 
         },
         error: (err) => {
           console.error('Failed to fetch exam results:', err);
           this.errorMessage =
             'Could not fetch exam results. Please try again later.';
-          this.isLoading = false; // Stop loading spinner even on error
+          this.isLoading = false; 
         },
       });
   }
 
-  /**
-   * Navigate to the previous page.
-   */
+  
   previousPage(): void {
     if (this.pageNumber > 1) {
       this.pageNumber--;
@@ -73,9 +69,7 @@ export class ReportsComponent implements OnInit {
     }
   }
 
-  /**
-   * Navigate to the next page.
-   */
+  
   nextPage(): void {
     if (this.pageNumber < this.totalPages) {
       this.pageNumber++;
@@ -83,17 +77,13 @@ export class ReportsComponent implements OnInit {
     }
   }
 
-  /**
-   * Reset pagination and reload data.
-   */
+
   resetPagination(): void {
     this.pageNumber = 1;
     this.getExamResults();
   }
 
-  /**
-   * Handle changes to the page size and reset pagination.
-   */
+ 
   onPageSizeChange(): void {
     this.resetPagination();
   }

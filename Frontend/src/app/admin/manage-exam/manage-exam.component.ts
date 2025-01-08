@@ -49,8 +49,7 @@ export class ManageExamComponent implements OnInit {
 
   // Refresh component state
   refreshComponent(): void {
-    this.fetchQuestions(); // Re-fetch questions
-    // Reset any temporary UI states here if needed
+    this.fetchQuestions(); 
   }
 
   // Add a new question
@@ -72,8 +71,8 @@ export class ManageExamComponent implements OnInit {
       )
       .subscribe({
         next: () => {
-          this.newQuestionText = ''; // Clear input
-          this.refreshComponent(); // Refresh component
+          this.newQuestionText = ''; 
+          this.refreshComponent();
           this.isLoading = false;
         },
         error: (err) => {
@@ -104,8 +103,8 @@ export class ManageExamComponent implements OnInit {
       )
       .subscribe({
         next: () => {
-          this.updatedQuestionText[questionId] = ''; // Clear input
-          this.refreshComponent(); // Refresh component
+          this.updatedQuestionText[questionId] = ''; 
+          this.refreshComponent(); 
           this.isLoading = false;
         },
         error: (err) => {
@@ -117,7 +116,6 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
-  // Delete a question
   deleteQuestion(questionId: number): void {
     this.isLoading = true;
     this.errorMessage = '';
@@ -128,7 +126,7 @@ export class ManageExamComponent implements OnInit {
       })
       .subscribe({
         next: () => {
-          this.refreshComponent(); // Refresh component
+          this.refreshComponent(); 
           this.isLoading = false;
         },
         error: (err) => {
@@ -140,7 +138,6 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
-  // Add an answer to a question
   addAnswer(questionId: number): void {
     const answerText = this.newAnswers[questionId];
     const isCorrect = this.correctAnswers[questionId];
@@ -175,8 +172,8 @@ export class ManageExamComponent implements OnInit {
       )
       .subscribe({
         next: () => {
-          this.newAnswers[questionId] = ''; // Clear input
-          this.refreshComponent(); // Refresh component
+          this.newAnswers[questionId] = ''; 
+          this.refreshComponent();
           this.isLoading = false;
         },
         error: (err) => {
@@ -198,7 +195,7 @@ export class ManageExamComponent implements OnInit {
       })
       .subscribe({
         next: () => {
-          this.refreshComponent(); // Refresh component
+          this.refreshComponent(); 
           this.isLoading = false;
         },
         error: (err) => {
@@ -209,7 +206,6 @@ export class ManageExamComponent implements OnInit {
       });
   }
 
-  // Start editing a question
   startEditingQuestion(questionId: number, questionText: string): void {
     this.updatedQuestionText[questionId] = questionText;
   }

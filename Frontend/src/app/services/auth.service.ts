@@ -9,7 +9,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class AuthenticationService {
   private tokenKey = 'authToken';
   private jwtHelper = new JwtHelperService();
-  private apiUrl = 'http://localhost:5063/api/Authentcation/Register'; // Your API endpoint
+  private apiUrl = 'http://localhost:5063/api/Authentcation/Register'; 
 
   constructor(private http: HttpClient) {}
 
@@ -23,18 +23,16 @@ export class AuthenticationService {
 
   // Save token, user role, and nameId in localStorage
   saveAuthData(token: string, role: string) {
-    const decodedToken = this.jwtHelper.decodeToken(token); // Decode the token
-    const nameId = decodedToken['nameid']; // Extract the nameid from the token
+    const decodedToken = this.jwtHelper.decodeToken(token); 
+    const nameId = decodedToken['nameid']; 
 
-    // Store the token, role, and nameid in localStorage
     localStorage.setItem('token', token);
     localStorage.setItem('userRole', role);
-    localStorage.setItem('nameid', nameId); // Save nameid in localStorage
+    localStorage.setItem('nameid', nameId);
   }
 
-  // Get the JWT token from localStorage
   getToken(): string {
-    return localStorage.getItem('token') || ''; // Return the token
+    return localStorage.getItem('token') || ''; 
   }
 
   // Get the user role from the decoded token
@@ -42,42 +40,40 @@ export class AuthenticationService {
     const token = this.getToken();
     if (token) {
       const decodedToken = this.jwtHelper.decodeToken(token);
-      return decodedToken['role']; // Assuming 'role' is the key in the token
+      return decodedToken['role']; 
     }
     return null;
   }
 
-  // Check if the user is logged in (token is valid and not expired)
+
   isLoggedIn(): boolean {
     const token = this.getToken();
     return !!token && !this.jwtHelper.isTokenExpired(token);
   }
 
-  // Logout the user (clear localStorage)
+
   logout() {
-    localStorage.clear(); // Clear all localStorage data
+    localStorage.clear(); 
   }
 
-  // Register user method (if needed for the app)
+
   register(userData: {
     name: string;
     email: string;
     password: string;
   }): Observable<any> {
-    return this.http.post(this.apiUrl, userData); // Register the user
+    return this.http.post(this.apiUrl, userData); 
   }
 
-  // Get nameid from localStorage (extracted from the decoded token)
   getUserId(): string | null {
-    return localStorage.getItem('nameid'); // Retrieve the nameid from localStorage
+    return localStorage.getItem('nameid'); 
   }
 
-  // Get username from the token (if included in the JWT payload)
   getUserName(): string | null {
     const token = this.getToken();
     if (token) {
       const decodedToken = this.jwtHelper.decodeToken(token);
-      return decodedToken['sub']; // Assuming 'sub' is the key for the username
+      return decodedToken['sub']; 
     }
     return null;
   }

@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-subject-user',
   templateUrl: './subject-user.component.html',
-  styleUrls: ['./subject-user.component.css'], // Make sure this path is correct
+  styleUrls: ['./subject-user.component.css'],
   standalone: true,
   imports: [CommonModule],
 })
@@ -29,15 +29,14 @@ export class SubjectUserComponent implements OnInit {
     });
   }
 
-  // Update this method to correctly handle the Event object
   onSubjectChange(event: Event): void {
-    const target = event.target as HTMLSelectElement; // Cast event.target to HTMLSelectElement
-    const subjectId = target.value; // Get the value of the selected subject
+    const target = event.target as HTMLSelectElement; 
+    const subjectId = target.value; 
     if (!subjectId) {
       this.exams = [];
       return;
     }
-    this.fetchExamsBySubject(subjectId); // Fetch exams by the subjectId
+    this.fetchExamsBySubject(subjectId); 
   }
 
   fetchExamsBySubject(subjectId: string): void {

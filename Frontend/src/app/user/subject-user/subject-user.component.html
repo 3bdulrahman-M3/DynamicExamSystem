@@ -1,7 +1,6 @@
 <div class="w-full bg-white p-8">
     <h1 class="text-4xl font-bold text-center text-blue-900 mb-6">Exams</h1>
 
-    <!-- Subject Card -->
     <div class="max-w-sm mx-auto bg-white shadow-lg rounded-lg p-6 mb-8">
         <h2 class="text-xl font-semibold text-gray-700 mb-4">Select Subject</h2>
         <select id="subjectSelect"
@@ -14,7 +13,7 @@
         </select>
     </div>
 
-    <!-- Exams Displayed in Cards -->
+ 
     <!-- <div *ngIf="exams.length > 0" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <div *ngFor="let exam of exams"
             class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
@@ -27,7 +26,6 @@
         </div>
     </div> -->
 
-    <!-- Random Exam Button -->
     <div *ngIf="exams.length > 0" class="text-center mt-6">
         <button (click)="startRandomExam()"
             class=" px-4 py-2 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
@@ -35,7 +33,6 @@
         </button>
     </div>
 
-    <!-- No Exams Found Message -->
     <p *ngIf="exams.length === 0" class="text-center text-gray-500 text-lg mt-4">
         No exams found for the selected subject.
     </p>

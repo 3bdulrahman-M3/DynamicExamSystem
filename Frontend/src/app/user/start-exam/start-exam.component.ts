@@ -18,7 +18,7 @@ export class StartExamComponent implements OnInit, OnDestroy {
   successMessage: string = '';
   examTitle = '';
   private baseApiUrl = 'http://localhost:5063/api';
-  timer: string = '05:00'; // Timer set to 5 minutes initially
+  timer: string = '05:00';
   interval: any;
   currentQuestionIndex: number = 0;
   unansweredQuestions: number[] = [];
@@ -106,10 +106,10 @@ export class StartExamComponent implements OnInit, OnDestroy {
       .subscribe({
         next: () => {
           this.successMessage = 'Exam submitted successfully!';
-          this.refreshComponentState(); // Refresh the component state
+          this.refreshComponentState(); 
           setTimeout(() => {
-            this.router.navigate(['user/dashboard']); // Navigate after refresh
-          }, 500); // Delay navigation for smooth transition
+            this.router.navigate(['user/dashboard']); 
+          }, 500); 
         },
         error: (err) => {
           console.error(err);
@@ -126,7 +126,7 @@ export class StartExamComponent implements OnInit, OnDestroy {
       if (seconds === 0) {
         if (minutes === 0) {
           clearInterval(this.interval);
-          this.saveAnswersAndSubmit(); // Automatically save and submit
+          this.saveAnswersAndSubmit(); 
         } else {
           minutes--;
           seconds = 59;
@@ -159,7 +159,7 @@ export class StartExamComponent implements OnInit, OnDestroy {
           this.successMessage = 'Time is up! Exam submitted successfully.';
           this.refreshComponentState();
           setTimeout(() => {
-            this.router.navigate(['user/dashboard']); // Navigate to dashboard
+            this.router.navigate(['user/dashboard']); 
           }, 500);
         },
         error: (err) => {

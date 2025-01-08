@@ -8,31 +8,29 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './exam-reports.component.html',
   styleUrls: ['./exam-reports.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule], // Ensures ngClass and date pipe work
+  imports: [CommonModule, FormsModule], 
 })
 export class ExamReportsComponent implements OnInit {
   examHistory: any[] = [];
   errorMessage: string = '';
   pageNumber: number = 1;
-  pageSize: number = 10; // Default page size
+  pageSize: number = 10; 
   totalCount: number = 0;
   totalPages: number = 0;
-  isLoading: boolean = false; // Flag to show loading indicator
+  isLoading: boolean = false; 
 
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.getExamHistory(); // Fetch exam history when the component is initialized
+    this.getExamHistory(); 
 
   }
 
   getExamHistory(): void {
-    this.isLoading = true; // Show loading indicator
+    this.isLoading = true; 
     const params = new HttpParams()
       .set('pageNumber', this.pageNumber.toString())
       .set('pageSize', this.pageSize.toString());
-
-    // Fetch exam history for all users
     this.http
       .get<any>(`http://localhost:5063/api/Exam/history`, { params })
       .subscribe({

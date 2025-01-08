@@ -10,14 +10,14 @@ import { AuthenticationService } from '../../services/auth.service';
   styleUrls: ['./user-dashboard.component.css'],
 })
 export class UserDashboardComponent implements OnInit {
-  totalExams: number = 0; // Total number of exams
-  totalPassedExams: number = 0; // Number of passed exams
-  totalFailedExams: number = 0; // Number of failed exams
-  totalSubjects: number = 0; // Total number of subjects
-  errorMessage: string = ''; // For displaying errors
-  isLoading: boolean = false; // For loading state
-  nameId: string | null = null; // Store the user ID
-  username: string = ''; // Store the user's name
+  totalExams: number = 0; 
+  totalPassedExams: number = 0; 
+  totalFailedExams: number = 0; 
+  totalSubjects: number = 0; 
+  errorMessage: string = ''; 
+  isLoading: boolean = false;
+  nameId: string | null = null; 
+  username: string = ''; 
 
   constructor(
     private http: HttpClient,
@@ -25,19 +25,16 @@ export class UserDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUserId(); // Get the user ID
-    this.fetchUserDetails(); // Fetch user details using the ID
-    this.calculateExamHistory(); // Calculate total exams
-    this.fetchTotalSubjects(); // Fetch total subjects
+    this.getUserId(); 
+    this.fetchUserDetails(); 
+    this.calculateExamHistory();
+    this.fetchTotalSubjects(); 
   }
 
-  // Retrieve the user ID from localStorage
   getUserId(): void {
-    this.nameId = this.authService.getUserId(); // Get the user ID (nameid) from localStorage
-    // console.log('User ID:', this.nameId); // Example: "123"
-  }
+    this.nameId = this.authService.getUserId(); 
 
-  // Fetch user details using /api/Account/{id}
+  }
   fetchUserDetails(): void {
     if (!this.nameId) {
       this.errorMessage = 'User ID not found. Please log in again.';
@@ -50,7 +47,7 @@ export class UserDashboardComponent implements OnInit {
       )
       .subscribe({
         next: (data) => {
-          this.username = data.userName; // Extract the username from API response
+          this.username = data.userName; 
         },
         error: (err) => {
           console.error('Failed to fetch user information', err);
@@ -60,7 +57,6 @@ export class UserDashboardComponent implements OnInit {
       });
   }
 
-  // Fetch the total number of exams
   calculateExamHistory(): void {
     this.isLoading = true;
 
@@ -68,12 +64,11 @@ export class UserDashboardComponent implements OnInit {
       .get<any[]>('http://localhost:5063/api/Exam/exam/results')
       .subscribe({
         next: (data) => {
-          // console.log('Fetched Exam Results:', data); // Debug: check the structure of the data
+          
 
           if (Array.isArray(data)) {
-            this.totalExams = data.length; // Calculate the total number of exams
+            this.totalExams = data.length; 
 
-            // Filter the exams by final score and count passed and failed exams
             this.totalPassedExams = data.filter(
               (exam) => exam.score > 50
             ).length;
@@ -94,14 +89,12 @@ export class UserDashboardComponent implements OnInit {
         },
       });
   }
-
-  // Fetch total subjects from the API
   fetchTotalSubjects(): void {
     this.isLoading = true;
 
     this.http.get<any[]>('http://localhost:5063/api/Subject').subscribe({
       next: (data) => {
-        this.totalSubjects = data.length; // Calculate the total number of subjects
+        this.totalSubjects = data.length; 
         this.isLoading = false;
       },
       error: (err) => {

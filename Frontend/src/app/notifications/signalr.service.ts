@@ -11,7 +11,7 @@ export interface Notification {
   Message: string;
   ExamId: string;
   StudentId: string;
-  SubmissionTime: string; // Use Date if parsed
+  SubmissionTime: string; 
 }
 
 @Injectable({
@@ -25,8 +25,8 @@ export class NotificationService implements OnDestroy {
 
   constructor() {
     this.hubConnection = new HubConnectionBuilder()
-      .withUrl('http://localhost:5063/notification') // SignalR Hub URL
-      .withAutomaticReconnect([0, 2000, 10000, 30000]) // Retry intervals
+      .withUrl('http://localhost:5063/notification') 
+      .withAutomaticReconnect([0, 2000, 10000, 30000]) 
       .configureLogging(LogLevel.Information)
       .build();
 

@@ -1,5 +1,4 @@
 <div class="flex flex-wrap md:flex-nowrap min-h-screen bg-blue-900 text-white">
-    <!-- Left Section: Instructions -->
     <div class="w-full md:w-1/3 p-8 bg-blue-800 flex flex-col justify-center">
         <div class="mb-8 text-center">
             <i class="fas fa-sign-in-alt text-5xl mb-4 text-[#3498DB]"></i>
@@ -21,7 +20,6 @@
         </ul>
     </div>
 
-    <!-- Right Section: Login Form -->
     <div class="w-full md:w-2/3 flex items-center justify-center p-8">
         <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
             <!-- Header Section -->
@@ -31,9 +29,7 @@
                 <p class="text-sm text-gray-600">Access your account to continue</p>
             </div>
 
-            <!-- Login Form -->
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
-                <!-- Email Field -->
                 <div class="mb-4">
                     <label for="email" class="block mb-2 text-sm font-medium text-[#2C3E50]">Email</label>
                     <div class="relative">
@@ -48,7 +44,6 @@
                     </div>
                 </div>
 
-                <!-- Password Field -->
                 <div class="mb-4">
                     <label for="password" class="block mb-2 text-sm font-medium text-[#2C3E50] ">Password</label>
                     <div class="relative">
@@ -66,8 +61,6 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
-                <!-- Submit Button -->
                 <button type="submit" [disabled]="loading"
                     class="w-full px-4 py-2 text-white bg-[#3498DB] rounded-lg hover:bg-[#2ECC71] focus:outline-none focus:ring-2 focus:ring-[#3498DB] focus:ring-offset-2">
                     <span *ngIf="!loading">Login</span>
@@ -76,17 +69,10 @@
                     </span>
                 </button>
 
-                <!-- Error Message -->
+
                 <div *ngIf="errorMessage" class="mt-4 text-center text-red-500">
                     <p>{{ errorMessage }}</p>
                 </div>
-
-                <!-- Forgot Password Link -->
-                <!-- <div class="mt-4 text-center">
-                    <a href="/" class="text-sm text-[#3498DB] hover:underline">Home Page</a>
-                </div> -->
-
-                <!-- Register Link -->
                 <div class="mt-4 text-center">
                     <a href="/register" class="text-sm text-[#3498DB] hover:underline">Don't have an account?</a>
                 </div>

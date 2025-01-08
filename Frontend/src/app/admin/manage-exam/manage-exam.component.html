@@ -1,7 +1,5 @@
 <div class="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
   <h1 class="text-2xl font-semibold mb-4">Manage Exam - Add Question</h1>
-
-  <!-- Add New Question Section -->
   <div class="mb-6 sticky top-0 bg-white shadow-md z-10 p-4 rounded-lg">
     <input type="text" [(ngModel)]="newQuestionText" placeholder="Enter new question"
       class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" />
@@ -10,31 +8,21 @@
       <i class="fas fa-plus mr-2"></i> Add Question
     </button>
   </div>
-
-  <!-- Error Message or Loading Indicator -->
   <div *ngIf="errorMessage || isLoading" class="mt-4 text-center">
     <div *ngIf="isLoading" class="text-blue-500">Loading...</div>
     <div *ngIf="errorMessage" class="text-red-500">{{ errorMessage }}</div>
   </div>
-
-  <!-- Questions List -->
   <div *ngFor="let question of questions; let i = index" id="question-{{i}}" class="mb-6">
     <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
       <div class="flex justify-between items-center">
         <p class="text-lg font-medium mb-2">{{ question.text }}</p>
-
-        <!-- Edit Question Button -->
         <button (click)="startEditingQuestion(question.id, question.text)" class="text-blue-500 hover:text-blue-700">
           <i class="fas fa-edit"></i> Edit
         </button>
-
-        <!-- Delete Question Button -->
         <button (click)="deleteQuestion(question.id)" class="text-red-500 hover:text-red-700">
           <i class="fas fa-trash-alt"></i> Delete
         </button>
       </div>
-
-      <!-- Editable Text Area for Question -->
       <div *ngIf="updatedQuestionText[question.id]">
         <textarea [(ngModel)]="updatedQuestionText[question.id]"
           class="w-full p-2 border border-gray-300 rounded-lg mt-2"></textarea>
@@ -42,21 +30,15 @@
           <i class="fas fa-check mr-2"></i> Update Question
         </button>
       </div>
-
-      <!-- Display existing answers -->
       <div *ngIf="question.answers && question.answers.length > 0" class="space-y-3 mb-4 mr-6">
         <div *ngFor="let answer of question.answers" class="flex items-center space-x-2">
           <p class="text-gray-700">{{ answer.text }}</p>
           <span *ngIf="answer.isCorrect" class="text-green-500 text-xs">Correct</span>
-
-          <!-- Delete Answer Button -->
           <button (click)="deleteAnswer(question.id, answer.id)" class="text-red-500 hover:text-red-700">
             <i class="fas fa-trash-alt"></i> Delete
           </button>
         </div>
       </div>
-
-      <!-- Add new answer -->
       <div class="space-y-3">
         <input id="answer-{{ question.id }}" type="text" [(ngModel)]="newAnswers[question.id]"
           placeholder="Enter your answer"

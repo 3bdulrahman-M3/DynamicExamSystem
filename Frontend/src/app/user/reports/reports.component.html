@@ -11,9 +11,7 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="container mx-auto p-6" [hidden]="isLoading">
-        <!-- Pagination Controls -->
         <div class="flex justify-between items-center mt-4">
             <button
                 class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-400"
@@ -29,15 +27,12 @@
                 Next
             </button>
         </div>
-
-        <!-- Page Size Input -->
         <div class="mt-4">
             <label for="pageSize" class="text-gray-700 mr-2">Page Size:</label>
             <input id="pageSize" type="number" [(ngModel)]="pageSize" min="1" (change)="onPageSizeChange()"
                 class="px-4 py-2 rounded-md border-gray-300" [value]="pageSize" />
         </div>
 
-        <!-- Exam Results Section -->
         <div *ngIf="examResults.length > 0" class="mt-6">
             <h2 class="text-2xl font-bold mb-6 text-gray-800">
                 <i class="fas fa-book-reader mr-2"></i>Your Exam History
@@ -82,14 +77,13 @@
             </table>
         </div>
 
-        <!-- No Results Section -->
+
         <div *ngIf="examResults.length === 0"
             class="bg-gray-200 text-gray-700 p-4 rounded-md shadow-md flex items-center justify-between mt-6">
             <i class="fas fa-frown mr-3"></i>
             <p>No exam results found.</p>
         </div>
 
-        <!-- Error Message Section -->
         <div *ngIf="errorMessage"
             class="error-message bg-red-500 text-white p-4 rounded-md shadow-md flex items-center mt-6">
             <i class="fas fa-exclamation-triangle mr-3"></i>

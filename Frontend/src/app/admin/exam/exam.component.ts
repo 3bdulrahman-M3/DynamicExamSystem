@@ -18,25 +18,25 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./exam.component.css'],
 })
 export class ExamComponent implements OnInit {
-  subjects: any[] = []; // To store subjects from API
-  exams: any[] = []; // To store exams fetched for the selected subject
-  examForm!: FormGroup; // FormGroup to handle the selected subject
+  subjects: any[] = []; 
+  exams: any[] = []; 
+  examForm!: FormGroup; 
   errorMessage: string = '';
   isLoading: boolean = false;
 
-  // New exam title and description input for adding new exam
+  
   newExamTitle: string = '';
   newExamDescription: string = '';
 
   constructor(private http: HttpClient, private fb: FormBuilder) {
     // Initialize the form
     this.examForm = this.fb.group({
-      selectedSubject: [null], // FormControl for dropdown
+      selectedSubject: [null], 
     });
   }
 
   ngOnInit(): void {
-    this.fetchSubjects(); // Fetch subjects on initialization
+    this.fetchSubjects();
   }
 
   fetchSubjects(): void {
@@ -45,11 +45,11 @@ export class ExamComponent implements OnInit {
 
     this.http.get<any[]>('http://localhost:5063/api/Subject').subscribe({
       next: (data) => {
-        this.subjects = data; // Store the subjects
+        this.subjects = data; 
         if (this.subjects.length > 0) {
-          // Automatically select the first subject by default
+        
           this.examForm.patchValue({ selectedSubject: this.subjects[0].id });
-          this.fetchExams(this.subjects[0].id); // Fetch exams for the selected subject
+          this.fetchExams(this.subjects[0].id); 
         }
         this.isLoading = false;
       },
@@ -62,7 +62,7 @@ export class ExamComponent implements OnInit {
 
   fetchExams(subjectId: number): void {
     if (!subjectId) {
-      this.exams = []; // Clear exams if no subject is selected
+      this.exams = []; 
       return;
     }
 
@@ -73,7 +73,7 @@ export class ExamComponent implements OnInit {
       .get<any[]>(`http://localhost:5063/api/Exam/subject/${subjectId}`)
       .subscribe({
         next: (data) => {
-          this.exams = data; // Store the exams for the selected subject
+          this.exams = data; 
           this.isLoading = false;
         },
         error: (err) => {
@@ -86,9 +86,9 @@ export class ExamComponent implements OnInit {
   onSubjectChange(): void {
     const subjectId = this.examForm.value.selectedSubject;
     if (subjectId) {
-      this.fetchExams(subjectId); // Fetch exams for the selected subject
+      this.fetchExams(subjectId); 
     } else {
-      this.exams = []; // Clear exams if no subject is selected
+      this.exams = []; 
     }
   }
 
@@ -110,8 +110,8 @@ export class ExamComponent implements OnInit {
 
     this.http.post<any>('http://localhost:5063/api/Exam', newExam).subscribe({
       next: (response) => {
-        this.exams.push(response); // Add the new exam to the list
-        this.newExamTitle = ''; // Clear the input after adding
+        this.exams.push(response); 
+        this.newExamTitle = ''; 
         this.isLoading = false;
       },
       error: (err) => {
@@ -121,7 +121,7 @@ export class ExamComponent implements OnInit {
     });
   }
 
-  // Method to update the exam title
+  
   onUpdateExam(examId: number, newName: string): void {
     if (!newName || newName.trim() === '') {
       this.errorMessage = 'Exam name cannot be empty.';
@@ -137,12 +137,12 @@ export class ExamComponent implements OnInit {
         { newName },
         {
           headers: { 'Content-Type': 'application/json' },
-          responseType: 'text', // Expect a plain text response
+          responseType: 'text', 
         }
       )
       .subscribe({
         next: () => {
-          this.fetchExams(this.examForm.value.selectedSubject); // Reload exams after update
+          this.fetchExams(this.examForm.value.selectedSubject); 
           this.isLoading = false;
         },
         error: (err) => {
@@ -160,7 +160,7 @@ export class ExamComponent implements OnInit {
 
       this.http.delete(`http://localhost:5063/api/Exam/${examId}`).subscribe({
         next: () => {
-          this.exams = this.exams.filter((exam) => exam.id !== examId); // Remove the deleted exam from the list
+          this.exams = this.exams.filter((exam) => exam.id !== examId); 
           this.isLoading = false;
         },
         error: (err) => {

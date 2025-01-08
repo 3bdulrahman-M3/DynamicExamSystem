@@ -1,14 +1,11 @@
 <div class="p-6 bg-gray-100">
     <div class="flex flex-col items-center">
-        <!-- Display Username -->
         <h1 class="text-3xl font-bold text-gray-800 mb-4">
             Welcome, {{ username || 'guest' }}!
         </h1>
 
-        <!-- Row 1: Total Subjects and Total Exams in History -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
 
-            <!-- Total Subjects Card -->
             <div class="bg-white shadow-md rounded-lg p-6 text-center">
                 <div class="flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-500" fill="none"
@@ -24,8 +21,6 @@
                 <p class="text-4xl font-bold text-blue-500">{{ totalSubjects }}</p>
                 <p class="mt-2 text-gray-600">These are the subjects you have enrolled in.</p>
             </div>
-
-            <!-- Total Exams Card -->
             <div class="bg-white shadow-md rounded-lg p-6 text-center">
                 <div class="flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-500" fill="none"
@@ -41,11 +36,8 @@
                 <p class="mt-2 text-gray-600">This is the total number of exams you've taken so far.</p>
             </div>
         </div>
-
-        <!-- Row 2: Passed Exams and Failed Exams -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl mt-6">
 
-            <!-- Total Passed Exams Card -->
             <div class="bg-white shadow-md rounded-lg p-6 text-center">
                 <div class="flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-green-500" fill="none"
@@ -59,8 +51,6 @@
                 <p class="text-4xl font-bold text-green-500">{{ totalPassedExams }}</p>
                 <p class="mt-2 text-gray-600">These are the exams you have successfully passed.</p>
             </div>
-
-            <!-- Total Failed Exams Card -->
             <div class="bg-white shadow-md rounded-lg p-6 text-center">
                 <div class="flex items-center justify-center mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-red-500" fill="none"
@@ -78,8 +68,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Error Message -->
     <div *ngIf="errorMessage" class="mt-4 text-red-600">
         {{ errorMessage }}
     </div>

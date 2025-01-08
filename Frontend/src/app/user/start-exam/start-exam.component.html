@@ -10,28 +10,24 @@
         <span class="text-lg font-semibold text-gray-800">{{ timer }}</span>
     </div>
 
-    <!-- Title Section -->
+ 
     <div class="text-center mb-8">
         <h2 class="text-3xl font-semibold text-gray-800">{{ examTitle }}</h2>
         <span class="font-medium text-gray-600">Total Questions: {{ questions.length }}</span>
     </div>
 
-    <!-- Loading Indicator -->
     <div *ngIf="isLoading" class="text-blue-500 text-center mb-4">
         Loading questions...
     </div>
 
-    <!-- Error Message -->
     <div *ngIf="errorMessage" class="text-red-500 text-center mb-4">
         {{ errorMessage }}
     </div>
 
-    <!-- Success Message -->
     <div *ngIf="successMessage" class="text-green-500 text-center mb-4">
         {{ successMessage }}
     </div>
 
-    <!-- Exam Questions Form -->
     <form *ngIf="questions.length > 0" class="space-y-8">
         <div *ngFor="let question of questions; let i = index"
             class="bg-white border border-gray-300 p-6 rounded-lg shadow-md">
@@ -48,7 +44,6 @@
             </div>
         </div>
 
-        <!-- Submit Button -->
         <div class="text-center">
             <button type="button" (click)="submitExam()"
                 class="p-4 max-w-sm bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg">
